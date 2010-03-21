@@ -1,0 +1,134 @@
+/* proSilver MODX Creator
+---------------------------------------- */
+label {
+	color: #425067;
+	cursor: default;
+	padding-right: 5px;
+	color: #676767;
+	font-size: 1.2em;
+}
+
+dd label {
+	color: #333;
+}
+
+label input {
+	vertical-align: middle;
+}
+
+label img {
+	vertical-align: middle;
+}
+
+dt label {
+	font-weight: bold;
+	text-align: left;
+}
+
+dd label {
+	white-space: nowrap;
+	color: #333;
+}
+
+dd input, dd textarea {
+	margin-right: 3px;
+}
+
+dd select {
+	width: auto;
+}
+
+#error-div {
+	background-color: red;
+}
+
+#warning-div {
+	background-color: yellow;
+}
+
+.modx-creator fieldset {
+	padding: 2px;
+}
+
+.modx-creator select {
+	display: block;
+	clear: both;
+}
+
+.modx-creator fieldset dl {
+	padding: 6px 0;
+	color: #333333;
+	margin: 0;
+	clear: both;
+}
+
+.modx-creator fieldset dt {
+	width: 15em;
+	float: left;
+	text-align: left;
+}
+
+.modx-creator fieldset dd {
+	margin-left: 16em;
+	margin-bottom: 5px;
+/*	display: block;*/
+}
+
+.error-dl {
+	background-color: red;
+}
+
+img.sign, img.action-image {
+	vertical-align: middle !important;
+	margin-right: 3px;
+	height:14px;
+	width:14px;
+}
+
+img.action-image {
+	cursor: pointer;
+}
+
+div.right-tools {
+	float: left;
+	width: 14px;
+	clear: right;
+}
+
+div.right-tools img {
+	margin-bottom: 2px;
+}
+
+textarea.right-tools {
+	float: left;
+	margin-bottom: 3px;
+}
+
+fieldset.modx-level1 {
+	background-color: #FFFFFF;
+	padding: 10px;
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+
+fieldset.modx-level2 {
+	padding: 5px;
+	background-color: #F5F8FB;
+	border: 1px solid #E5E8EC;
+	margin-top: 5px;
+	margin-bottom: 10px;
+	font-size: 1em !important;
+}
+
+input.inputbox	{ width: 85%; }
+input.medium	{ width: 50%; }
+input.narrow	{ width: 25%; }
+input.tiny		{ width: 125px; }
+
+textarea.inputbox {
+	width: 85%;
+}
+
+.inputbox {
+	width: 85%;
+}
