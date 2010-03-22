@@ -8,6 +8,20 @@
 	background-color: yellow;
 }
 
+.rtl .icon-creator {
+	background-position: 100% 50%;
+	padding: 1px 17px 0 0;
+}
+
+.icon-creator {
+	background-position: 0 50%;
+	background-repeat: no-repeat;
+	background-image: none;
+	padding: 1px 0 0 17px;
+}
+
+.icon-creator					{ background-image: url("{T_THEME_PATH}/images/icon_creator.gif"); }
+
 .error-dl {
 	background-color: red;
 }
