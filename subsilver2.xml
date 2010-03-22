@@ -4,8 +4,8 @@
 <!--For security purposes, please check: http://www.phpbb.com/mods/ for the latest version of this MOD.\nAlthough MODs are checked before being allowed in the MODs Database there is no guarantee that there are no security problems within the MOD.\nNo support will be given for MODs not found within the MODs Database which can be found at http://www.phpbb.com/mods/-->
 <mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.phpbb.com/mods/xml/modx-1.2.5.xsd">
 	<header>
-		<meta name="generator" content="MODX file generated with PP MODX Creator by tumba25 (online version)"/>
 		<meta name="generator" content="MODX file generated with PP MODX Creator by tumba25 (offline version)"/>
+		<meta name="generator" content="MODX file generated with PP MODX Creator by tumba25 (online version)"/>
 		<license><![CDATA[http://opensource.org/licenses/gpl-license.php GNU General Public License v2]]></license>
 		<title lang="en"><![CDATA[MODX Creator for phpBB]]></title>
 		<description lang="en"><![CDATA[MODX install file creator for phpBB forums]]></description>
@@ -22,23 +22,19 @@
 			<time>300</time>
 			<target-version>3.0.7-PL1</target-version>
 		</installation>
+		<link-group>
+			<link type="parent" href="install_mod.xml" lang="en">Parent install file</link>
+		</link-group>
 	</header>
 	<action-group>
 		<copy>
 			<file from="root/*.*" to="*.*"/>
 		</copy>
-		<open src="styles/prosilver/theme/stylesheet.css">
-			<edit>
-				<find><![CDATA[	Copyright 2006 phpBB Group ( http://www.phpbb.com/ )
-    --------------------------------------------------------------
-*/]]></find>
-				<action type="after-add"><![CDATA[@import url("modx_creator.css");]]></action>
-			</edit>
-		</open>
 		<open src="styles/subsilver2/template/overall_header.html">
 			<edit>
 				<find><![CDATA[</head>]]></find>
 				<action type="before-add"><![CDATA[<!-- IF S_IN_MODX_CREATOR -->
+	<link rel="stylesheet" href="{T_THEME_PATH}/modx_creator.css" type="text/css" />
 	<!-- INCLUDE modx_creator_lang.html -->
 	<script type="text/javascript" src="{ROOT_PATH}js/jquery-1.3.2.min.js"></script>
 	<script type="text/javascript" src="{ROOT_PATH}js/modx_functions.js"></script>
@@ -46,7 +42,7 @@
 			</edit>
 			<edit>
 				<find><![CDATA[<td class="genmed" align="{S_CONTENT_FLOW_END}">]]></find>
-				<action type="after-add"><![CDATA[				<a href="{U_MODX_CREATOR}"><img src="{T_THEME_PATH}/images/icon_mini_creator.gif" width="12" height="13" alt="*" /> {L_MODX_CREATOR}</a>]]></action>
+				<action type="after-add"><![CDATA[				<a href="{U_MODX_CREATOR}"><img src="{T_THEME_PATH}/images/icon_mini_creator.gif" width="12" height="13" alt="{L_MODX_CREATOR}" />{L_MODX_CREATOR}</a>]]></action>
 			</edit>
 		</open>
 		<diy-instructions lang="en"><![CDATA[Purge your forum cache.
