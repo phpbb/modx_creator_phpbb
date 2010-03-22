@@ -160,7 +160,7 @@ function modx_add_field(obj_id, parent_id, sort, position, if_edit)
 	}
 	else
 	{
-		var element = '<dl id="' + dl_id + '">';
+		var element = '<dl id="' + dl_id + '" class="modx-edit">';
 			element += '<dt id="' + dt_id + '">';
 				element += '<label>' + lang['TYPE'] + ': </label>';
 				element += '<span>' + modx_select(obj_id + '[' + dl_id + ']', dt_id, dd_id, dl_id) + '</span>';

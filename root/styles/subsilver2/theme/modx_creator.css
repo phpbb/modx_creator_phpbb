@@ -1,6 +1,6 @@
 /* proSilver MODX Creator
 ---------------------------------------- */
-label {
+.modx-creator label {
 	color: #425067;
 	cursor: default;
 	padding-right: 5px;
@@ -131,4 +131,8 @@ textarea.inputbox {
 
 .inputbox {
 	width: 85%;
+}
+
+.modx-edit {
+	border-top: 1px dashed #CCC;
 }

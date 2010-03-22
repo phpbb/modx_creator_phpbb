@@ -515,7 +515,7 @@
 						</legend>
 						<p style="font-size: 1em;">{L_EDIT_NOTE}</p>
 						<!-- BEGIN action -->
-						<dl id="{file_row.edit.action.DL_ID}">
+						<dl id="{file_row.edit.action.DL_ID}"<!-- IF not action.S_FIRST_ROW --> class="modx-edit"<!-- ENDIF -->>
 							<dt id="{file_row.edit.action.DT_ID}">
 								<label>{L_TYPE}: </label>
 								<select class="krav" name="modx[{file_row.FILE_ID}][{file_row.edit.EDIT_ID}][{file_row.edit.action.DL_ID}][type]" onchange="if(this.options[this.selectedIndex].value != '-'){ get_select_change(this.options[this.selectedIndex].value, '{file_row.edit.action.DT_ID}', '{file_row.edit.action.DD_ID}', 'modx[{file_row.FILE_ID}][{file_row.edit.EDIT_ID}][{file_row.edit.action.DL_ID}]', '{file_row.edit.action.DL_ID}') }">

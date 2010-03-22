@@ -67,3 +67,7 @@ fieldset.modx-level2 {
 	margin-bottom: 10px;
 	font-size: 1em !important;
 }
+
+.modx-edit {
+	border-top: 1px dashed #CCC;
+}
