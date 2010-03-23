@@ -35,7 +35,10 @@
 		</link-group>
 	</header>
 	<action-group>
-		<open src="includes/function.php">
+		<copy>
+			<file from="root/*.*" to="*.*"/>
+		</copy>
+		<open src="includes/functions.php">
 			<edit>
 				<find><![CDATA[		'U_MODCP'				=> append_sid("{$phpbb_root_path}mcp.$phpEx", false, true, $user->session_id),]]></find>
 				<action type="after-add"><![CDATA[		'U_MODX_CREATOR'	=> append_sid("{$phpbb_root_path}modx_creator.$phpEx"),]]></action>
