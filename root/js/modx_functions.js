@@ -109,7 +109,7 @@ function get_select_change(value, dt_id, dd_id, file_name, dl5_id)
 					element += '<img id="' + dd_id + '-plus" class="action-image" src="' + image_path + 'modx_plus.png" alt="' + lang['ADD_FOUR'] + '" onclick="document.forms[\'modxform\'].' + dd_id + '_data.rows+=4" title="' + lang['ADD_FOUR_EXPLAIN'] + '" />';
 					element += '<img id="' + dd_id + '-minus" class="action-image" src="' + image_path + 'modx_del.png" alt="' + lang['REMOVE_FOUR'] + '" onclick="if(document.forms[\'modxform\'].' + dd_id + '_data.rows>7){document.forms[\'modxform\'].' + dd_id + '_data.rows-=4}else{document.forms[\'modxform\'].' + dd_id + '_data.rows-=(document.forms[\'modxform\'].' + dd_id + '_data.rows-4)};" title="' + lang['REMOVE_FOUR_EXPLAIN'] + '" />';
 				element += '</div>';
-				element += '<div id="' + dd_id + '_lang">' + lang_select(file_name + '[lang]') + '</div>';
+				element += '<div class="modx-select" id="' + dd_id + '_lang">' + lang_select(file_name + '[lang]') + '</div>';
 			element += '</div>';
 		break;
 	}
@@ -381,7 +381,7 @@ function add_desc()
 			element += '<img class="action-image" src="' + image_path + 'modx_plus.png" alt="' + lang['ADD_FOUR'] + '" onclick="document.forms[\'modxform\'].desc_' + field_id + '_desc.rows+=4" title="' + lang['ADD_FOUR_EXPLAIN'] + '" />';
 			element += '<img class="action-image" src="' + image_path + 'modx_del.png" alt="' + lang['REMOVE_FOUR'] + '" onclick="if(document.forms[\'modxform\'].desc_' + field_id + '_desc.rows>7){document.forms[\'modxform\'].desc_' + field_id + '_desc.rows-=4}else{document.forms[\'modxform\'].desc_' + field_id + '_desc.rows-=(document.forms[\'modxform\'].desc_' + field_id + '_desc.rows-4)};" title="' + lang['REMOVE_FOUR_EXPLAIN'] + '" />';
 		element += '</div>';
-		element += '<div>' + lang_select('desc[' + field_id + '][lang]') + '</div';
+		element += '<div class="modx-select">' + lang_select('desc[' + field_id + '][lang]') + '</div';
 	element += '</dd>';
 
 	$('#desc-field').append(element);
@@ -605,7 +605,7 @@ function add_notes()
 			element += '<img class="action-image" src="' + image_path + 'modx_plus.png" alt="' + lang['ADD_FOUR'] + '" onclick="document.forms[\'modxform\'].notes_' + field_id + '_note.rows+=4" title="' + lang['ADD_FOUR_EXPLAIN'] + '" />';
 			element += '<img class="action-image" src="' + image_path + 'modx_del.png" alt="' + lang['REMOVE_FOUR'] + '" onclick="if(document.forms[\'modxform\'].notes_' + field_id + '_note.rows>7){document.forms[\'modxform\'].notes_' + field_id + '_note.rows-=4}else{document.forms[\'modxform\'].notes_' + field_id + '_note.rows-=(document.forms[\'modxform\'].notes_' + field_id + '_note.rows-4)};" title="' + lang['REMOVE_FOUR_EXPLAIN'] + '" />';
 		element += '</div>';
-		element += lang_select('notes[' + field_id + '][lang]');
+		element += '<div class="modx-select">' + lang_select('notes[' + field_id + '][lang]') + '</div>';
 	element += '</dd>';
 
 	$('#notes-field').append(element);
@@ -626,7 +626,7 @@ function add_diy()
 			element += '<img id="' + field_id + '-plus" class="action-image" src="' + image_path + 'modx_plus.png" alt="' + lang['ADD_FOUR'] + '" onclick="document.forms[\'modxform\'].diy_' + field_id + '_diy.rows+=4" title="' + lang['ADD_FOUR_EXPLAIN'] + '" />';
 			element += '<img id="' + field_id + '-minus" class="action-image" src="' + image_path + 'modx_del.png" alt="' + lang['REMOVE_FOUR'] + '" onclick="if(document.forms[\'modxform\'].diy_' + field_id + '_diy.rows>7){document.forms[\'modxform\'].diy_' + field_id + '_diy.rows-=4}else{document.forms[\'modxform\'].diy_' + field_id + '_diy.rows-=(document.forms[\'modxform\'].diy_' + field_id + '_diy.rows-4)};" title="' + lang['REMOVE_FOUR_EXPLAIN'] + '" />';
 		element += '</div>';
-		element += lang_select('diy[' + field_id + '][lang]');
+		element += '<div class="modx-select">' + lang_select('diy[' + field_id + '][lang]') + '</div>';
 	element += '</dd>';
 
 	$('#diy-field').append(element);

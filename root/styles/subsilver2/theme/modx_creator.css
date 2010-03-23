@@ -50,7 +50,7 @@ dd select {
 	padding: 2px;
 }
 
-.modx-creator select {
+.modx-select {
 	display: block;
 	clear: both;
 }
@@ -124,6 +124,10 @@ input.inputbox	{ width: 85%; }
 input.medium	{ width: 50%; }
 input.narrow	{ width: 25%; }
 input.tiny		{ width: 125px; }
+
+.autowidth 	{
+	width: auto !important;
+}
 
 textarea.inputbox {
 	width: 85%;
