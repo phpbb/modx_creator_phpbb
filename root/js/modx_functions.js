@@ -132,7 +132,7 @@ function modx_add_field(obj_id, parent_id, sort, position, if_edit)
 	if(sort == 'edit')
 	{
 		var element = '<fieldset class="modx-level2" id="' + edit_id + '">';
-			element += '<legend class="sub-legend"> Edit';
+			element += '<legend class="sub-legend"> ' + lang['EDIT'];
 				element += ' <img class="sign" src="' + image_path + 'modx_info.png" alt="' + lang['INFO_ICON'] + '" title="' + lang['EDIT_EXPLAIN'] + '" />';
 				element += '<img class="action-image" src="' + image_path + 'modx_delete.png" alt="' + lang['DELETE'] + '" onclick="$(\'#' + edit_id + '\').remove()" /> ';
 				element += '<button type="button" class="button1" onclick="modx_add_field(\'' + obj_id + '\', \'' + edit_id + '\', \'edit\', \'above\', 1)">' + lang['EDIT_ADD_ABOVE'] + '</button> ';
@@ -141,7 +141,7 @@ function modx_add_field(obj_id, parent_id, sort, position, if_edit)
 			element += '<p style="font-size: 1em;">' + lang['EDIT_NOTE'] + '</p>';
 			element += '<dl id="' + dl_id + '">';
 				element += '<dt id="' + dt_id + '">';
-					element += '<label>Type: </label>';
+					element += '<label>' + lang['TYPE'] + ': </label>';
 					element += '<span>' + modx_select(obj_id + '[' + edit_id + '][' + dl_id + ']', dt_id, dd_id, dl_id) + '</span>';
 					element += '<div id="' + dt_id + '_options" style="margin-top: 5px">';
 						element += '<img class="action-image" src="' + image_path + 'modx_plus_up.png" alt="' + lang['ADD_FIELD_ABOVE'] + '" onclick="modx_add_field(\'' + obj_id + new_edit + '\', \'' + dl_id + '\', \'dl\', \'above\', 0);" title="' + lang['ADD_FIELD_ABOVE_EXPLAIN'] + '" /> ';
