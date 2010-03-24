@@ -198,7 +198,7 @@ function modx_select(file_name, dt_id, dd_id, dl_id)
 		element += '<option value="comment">' + lang['COMMENT'] + '</option>';
 		element += '<option value="find">' + lang['FIND'] + '</option>';
 		element += '<option value="after-add">' + lang['ADD_AFTER'] + '</option>';
-		element += '<option value="before-add">' + lang['ADD_BEFORE'] + '/option>';
+		element += '<option value="before-add">' + lang['ADD_BEFORE'] + '</option>';
 		element += '<option value="replace-with">' + lang['REPLACE_WITH'] + '</option>';
 		element += '<option value="operation">' + lang['OPERATION'] + '</option>';
 		element += '<option value="remove">' + lang['REMOVE'] + '</option>';
