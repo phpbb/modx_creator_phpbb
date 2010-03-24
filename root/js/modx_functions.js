@@ -195,6 +195,7 @@ function modx_add_field(obj_id, parent_id, sort, position, if_edit)
 function modx_select(file_name, dt_id, dd_id, dl_id)
 {
 	var element = '<select class="krav" name="' + file_name + '[type]" onchange="if(this.options[this.selectedIndex].value != \'-\'){ get_select_change(this.options[this.selectedIndex].value, \'' + dt_id + '\', \'' + dd_id + '\', \'' + file_name + '\', \'' + dl_id + '\') }">';
+		element += '<option value="-" selected="selected">' + lang['SELECT_TYPE'] + '</option>';
 		element += '<option value="comment">' + lang['COMMENT'] + '</option>';
 		element += '<option value="find">' + lang['FIND'] + '</option>';
 		element += '<option value="after-add">' + lang['ADD_AFTER'] + '</option>';
@@ -208,7 +209,6 @@ function modx_select(file_name, dt_id, dd_id, dl_id)
 		element += '<option value="inline-replace-with">' + lang['INLINE'] + ' ' + lang['REPLACE_WITH'] + '</option>';
 		element += '<option value="inline-operation">' + lang['INLINE'] + ' ' + lang['OPERATION'] + '</option>';
 		element += '<option value="inline-remove">' + lang['INLINE'] + ' ' + lang['REMOVE'] + '</option>';
-		element += '<option value="-" selected="selected">' + lang['SELECT_TYPE'] + '</option>';
 	element += '</select>';
 
 	return(element);

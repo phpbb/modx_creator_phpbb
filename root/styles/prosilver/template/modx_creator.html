@@ -518,6 +518,7 @@
 							<dt id="{file_row.edit.action.DT_ID}">
 								<label>{L_TYPE}: </label>
 								<select class="krav" name="modx[{file_row.FILE_ID}][{file_row.edit.EDIT_ID}][{file_row.edit.action.DL_ID}][type]" onchange="if(this.options[this.selectedIndex].value != '-'){ get_select_change(this.options[this.selectedIndex].value, '{file_row.edit.action.DT_ID}', '{file_row.edit.action.DD_ID}', 'modx[{file_row.FILE_ID}][{file_row.edit.EDIT_ID}][{file_row.edit.action.DL_ID}]', '{file_row.edit.action.DL_ID}') }">
+									<option value="-"<!-- IF file_row.edit.action.TYPE == '-' --> selected="selected"<!-- ENDIF -->>{L_SELECT_TYPE}</option>
 									<option value="comment"<!-- IF file_row.edit.action.TYPE == 'comment' --> selected="selected"<!-- ENDIF -->>{L_COMMENT}</option>
 									<option value="find"<!-- IF file_row.edit.action.TYPE == 'find' --> selected="selected"<!-- ENDIF -->>{L_FIND}</option>
 									<option value="after-add"<!-- IF file_row.edit.action.TYPE == 'after-add' --> selected="selected"<!-- ENDIF -->>{L_ADD_AFTER}</option>
@@ -531,7 +532,6 @@
 									<option value="inline-replace-with"<!-- IF file_row.edit.action.TYPE == 'inline-replace-with' --> selected="selected"<!-- ENDIF -->>{L_INLINE} {L_REPLACE_WITH}</option>
 									<option value="inline-operation"<!-- IF file_row.edit.action.TYPE == 'inline-operation' --> selected="selected"<!-- ENDIF -->>{L_INLINE} {L_OPERATION}</option>
 									<option value="inline-remove"<!-- IF file_row.edit.action.TYPE == 'inline-remove' --> selected="selected"<!-- ENDIF -->>{L_INLINE} {L_REMOVE}</option>
-									<option value="-"<!-- IF file_row.edit.action.TYPE == '-' --> selected="selected"<!-- ENDIF -->>{L_SELECT_TYPE}</option>
 								</select>
 
 								<div id="{file_row.edit.action.DT_ID}_options" style="margin-top: 5px;">

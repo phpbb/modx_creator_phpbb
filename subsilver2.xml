@@ -36,7 +36,7 @@
 				<action type="before-add"><![CDATA[<!-- IF S_IN_MODX_CREATOR -->
 	<link rel="stylesheet" href="{T_THEME_PATH}/modx_creator.css" type="text/css" />
 	<!-- INCLUDE modx_creator_lang.html -->
-	<script type="text/javascript" src="{ROOT_PATH}js/jquery-1.3.2.min.js"></script>
+	<script type="text/javascript" src="{ROOT_PATH}js/jquery-1.4.2.min.js"></script>
 	<script type="text/javascript" src="{ROOT_PATH}js/modx_functions.js"></script>
 <!-- ENDIF -->]]></action>
 			</edit>
