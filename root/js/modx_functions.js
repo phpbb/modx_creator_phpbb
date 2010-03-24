@@ -248,7 +248,7 @@ function act_file()
 
 			element += '<dl id="' + dl2_id + '">';
 				element += '<dt id="' + dt_id + '">';
-					element += '<label>Type:</label>';
+					element += '<label>' + lang['TYPE'] + ':</label>';
 					element += '<span>' + modx_select('modx[' + file_id + '][' + edit_id + '][' + dl2_id + ']', dt_id, dd_id, dl2_id) + '</span>';
 					element += '<div id="' + dt_id + '_options" style="margin-top: 5px">';
 						element += ' <img class="action-image" src="' + image_path + 'modx_plus_up.png" alt="' + lang['ADD_FIELD_ABOVE'] + '" onclick="modx_add_field(\'modx[' + file_id + '][' + edit_id + ']\', \'' + dl2_id + '\', \'dl\', \'above\', 0);" title="' + lang['ADD_FIELD_ABOVE_EXPLAIN'] + '" />';
