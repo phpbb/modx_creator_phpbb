@@ -42,7 +42,7 @@
 			</edit>
 			<edit>
 				<find><![CDATA[<td class="genmed" align="{S_CONTENT_FLOW_END}">]]></find>
-				<action type="after-add"><![CDATA[				<a href="{U_MODX_CREATOR}"><img src="{T_THEME_PATH}/images/icon_mini_creator.gif" width="12" height="13" alt="{L_MODX_CREATOR}" />{L_MODX_CREATOR}</a>]]></action>
+				<action type="after-add"><![CDATA[				<a href="{U_MODX_CREATOR}"><img src="{T_THEME_PATH}/images/icon_mini_creator.gif" width="12" height="13" alt="{L_MODX_CREATOR}" /> {L_MODX_CREATOR}</a>&nbsp; &nbsp;]]></action>
 			</edit>
 		</open>
 		<diy-instructions lang="en"><![CDATA[Purge your forum cache.
