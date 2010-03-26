@@ -506,4 +506,4 @@ $template->set_filenames(array(
 	'body' => 'modx_creator.html'
 ));
 
-$template->display('body');
+page_footer();
