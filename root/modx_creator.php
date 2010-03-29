@@ -443,7 +443,7 @@ while ($modx = $parser->get_modx_action())
 							$textarea = true;
 							// The comments needs a lang select
 							$modx_input = '<span id="' . $dd_id . '_field"><textarea class="inputbox right-tools" id="' . $dd_id . '_data" name="modx[' . $file_id . '][' . $edit_id . '][' . $dl_id . '][data]" rows="' . count_rows($value3['data'], 70) . '">' . gen_value($value3['data']) . '</textarea>';
-							$modx_select = '<span id="' . $dd_id . '_lang"><select name="modx[' . $file_id . '][' . $edit_id . '][' . $dl_id . '][lang]">' . lang_select($value3['lang']) . '</select></span></span>';
+							$modx_select = '<br style="clear:both" /><span id="' . $dd_id . '_lang"><select name="modx[' . $file_id . '][' . $edit_id . '][' . $dl_id . '][lang]">' . lang_select($value3['lang']) . '</select></span></span>';
 							$modx_img = '<img id="' . $dd_id . '_info" class="action-image" src="' . $imageset_path . '/modx_info.png" alt="Comment explain" title="Comment pertaining to this edit" />';
 						}
 
