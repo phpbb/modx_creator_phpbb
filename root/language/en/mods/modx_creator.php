@@ -4,7 +4,7 @@
 * modx_creator [English]
 *
 * @package language
-* @version $Id$ modx_creator.php 238 2010-03-20 13:34:38Z tumba25 $
+* @version $Id: modx_creator.php 243 2010-03-21 21:03:03Z tumba25
 * @copyright (c) 2010 phpBB Group
 * @license http://opensource.org/licenses/gpl-license.php GNU Public License
 *
@@ -59,7 +59,7 @@ $lang = array_merge($lang, array(
 	'DBMS' => 'DBMS',
 	'DEFAULT' => 'Default',
 	'DELETE_FIELD_ADD' => 'Add Delete field',
-	'DELETE_FIELD_ADD_EXPLAIN' => 'This is aimed for uninstall and update. Both files and directories can be deleted, directories should end with a slash (/).',
+	'DELETE_FIELD_ADD_EXPLAIN' => 'This is to uninstall and/or update. Both files and directories can be deleted, directories should end with a slash (/).',
 	'DEPENDENCY' => 'Dependency',
 	'DESCRIPTION' => 'Description',
 	'DESCRIPTION_ADD' => 'Add a description',
@@ -67,7 +67,7 @@ $lang = array_merge($lang, array(
 	'DESCRIPTION_EXPLAIN' => 'One description in English is required. You can add descriptions in other languages as well. This needs to be descriptive; &quot;Install instructions for my MOD&quot; is not enough.',
 	'DIY_ADD' => 'Add DIY',
 	'DIY_ADD_EXPLAIN' => 'Add DIY field',
-	'DIY_EXPLAIN' => 'You can have multiple DIY fields or none. Do It Yourself Instructions, or instructions that cannot be described accurately using the other MODX commands.',
+	'DIY_EXPLAIN' => 'You can have multiple DIY fields or none. Do It Yourself Instructions are instructions that can not be described accurately using the other MODX commands.',
 	'DIY_INSTRUCTIONS' => 'DIY (Do It Yourself) instructions',
 	'DOWNLOAD' => 'Download',
 	'DOWNLOAD_MODX' => 'Download modx.prosilver.en.xsl',
@@ -79,12 +79,12 @@ $lang = array_merge($lang, array(
 	'EDIT_ADD_BELOW' => 'Add edit below',
 	'EDIT_EXPLAIN' => 'Every discreet change to a file must be wrapped in its own edit tag, regardless of the number of children it contains. All finds within an edit tag should be processed before any action tag.',
 	'EDIT_FIND_EXPLAIN' => 'Each FIND typically requires to start a new EDIT',
-	'EDIT_NOTE' => 'NOTE: Each discreet change to a file must be wrapped in its own edit tag.',
+	'EDIT_NOTE' => 'NOTE: Each discreet change to a file must be wrapped in it’s own edit tag.',
 	'E_MAIL' => 'E-mail',
 
 	'FILE_ADD' => 'Add file',
 	'FILE_COPY' => 'File copy',
-	'FILE_COPY_EXPLAIN' => 'Both from and to fields are required. You can have as many copy fields as you need. The from field must contain the relative path from the current MODX file to the source file. Example: root/survey.php. Can also be a wildcard match using *.* Example: root/*.*. The to field must contain the the relative path from the phpBB root to the destination of the file. Should be an exact filename if an exact file name was given in the from attribute, or a directory name if a wildcard was used.',
+	'FILE_COPY_EXPLAIN' => 'Both from and to fields are required. You can have as many copy fields as you need. The from field must contain the relative path from the current MODX file to the source file. Example: root/survey.php. Can also be a wildcard match using *.* Example: root/*.*. The to field must contain the relative path from the phpBB root to the destination of the file. This must be an exact filename if an exact file name was given in the from attribute, or a directory name if a wildcard was used.',
 	'FILE_EDITS' => 'File edits',
 	'FILE_ADD_EDITS_EXPLAIN' => 'Files will be ordered alphabetically within their directories (files first).',
 	'FILE_FIELD_ADD' => 'Add copy field',
@@ -98,7 +98,7 @@ $lang = array_merge($lang, array(
 
 	'HISTORY' => 'History',
 	'HISTORY_ADD' => 'Add history',
-	'HISTORY_EXPLAIN' => 'You can have as many changelog fields as you want, or none. If you choose to have a changelog, all fields are required. You must have at least one change per changelog entry, but can have as many as you want. The versions will be ordered from oldest to newest or newest to oldest depending on if the checkbox is clicked or not.',
+	'HISTORY_EXPLAIN' => 'You can have as many change log fields as you want or none. If you choose to have a changelog, all fields are required. You must have at least one change per change log entry. The versions will be ordered from oldest to newest or newest to oldest depending on if the checkbox below is selected or not.',
 	'HISTORY_SORT' => 'Sort history newest version first',
 	'HREF' => 'href',
 
@@ -124,7 +124,7 @@ $lang = array_merge($lang, array(
 	'MODX_CREATOR_CONVERTOR' => 'MODX Install File Creator and Text / MODX Convertor',
 	'MODX_FILES' => 'MODX files',
 
-	'NOT_PHPBB' => 'Not phpBB.com',
+	'NOT_PHPBB' => 'Not at phpBB.com',
 	'NOT_PHPBB_EXPLAIN' => 'Check here if this author is not registered at phpBB.com.',
 
 	'OPERATION' => 'Operation',
@@ -142,7 +142,7 @@ $lang = array_merge($lang, array(
 	'QUERY' => 'Query',
 
 	'REAL_NAME' => 'Real name',
-	'REMOVE_FOUR' => 'Remove  4 rows',
+	'REMOVE_FOUR' => 'Remove 4 rows',
 	'REMOVE_FOUR_EXPLAIN' => 'Remove 4 rows from the textfield',
 	'REPLACE_WITH' => 'Replace with',
 
@@ -150,7 +150,7 @@ $lang = array_merge($lang, array(
 	'SELECT_TYPE_EXPLAIN' => 'Select type for this action field.',
 	'STATUS' => 'Status',
 	'SQL' => 'SQL',
-	'SQL_EXPLAIN' => 'You can have as many SQL fields as you want. DBMS is the dialect of the query, it defaults to sql-parser and leave it at that if you are not sure it would be set to something else. You can have multiple queries in the same field separated by a line feed.',
+	'SQL_EXPLAIN' => 'You can have as many SQL fields as you want. DBMS is the dialect of the query, it defaults the sql-parser. Leave it at DBMS if you are not sure it should be set to something else. You can have multiple queries in the same field separated by a line feed.',
 	'SQL_QUERY_ADD' => 'Add SQL query',
 
 	'TEMPLATE' => 'Template',

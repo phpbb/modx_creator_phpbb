@@ -53,6 +53,7 @@ dd select {
 .modx-select {
 	display: block;
 	clear: both;
+	padding-left: 16em;
 }
 
 .modx-creator fieldset dl {
