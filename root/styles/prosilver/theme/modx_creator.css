@@ -71,3 +71,20 @@ fieldset.modx-level2 {
 .modx-edit {
 	border-top: 1px dashed #CCC;
 }
+
+fieldset.modx-level2 dt span {
+	white-space: nowrap;
+	margin-left: 3px;
+}
+
+fieldset.modx-level2 dd span {
+	margin-left: 3em;
+}
+
+fieldset.modx-level2 textarea.right-tools {
+	margin-left: 3em;
+}
+
+.modx-edit {
+	border-top: 1px dashed #CCC;
+}
