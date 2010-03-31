@@ -109,7 +109,7 @@ function get_select_change(value, dt_id, dd_id, file_name, dl5_id)
 					element += '<img id="' + dd_id + '-plus" class="action-image" src="' + image_path + 'modx_plus.png" alt="' + lang['ADD_FOUR'] + '" onclick="document.forms[\'modxform\'].' + dd_id + '_data.rows+=4" title="' + lang['ADD_FOUR_EXPLAIN'] + '" />';
 					element += '<img id="' + dd_id + '-minus" class="action-image" src="' + image_path + 'modx_del.png" alt="' + lang['REMOVE_FOUR'] + '" onclick="if(document.forms[\'modxform\'].' + dd_id + '_data.rows>7){document.forms[\'modxform\'].' + dd_id + '_data.rows-=4}else{document.forms[\'modxform\'].' + dd_id + '_data.rows-=(document.forms[\'modxform\'].' + dd_id + '_data.rows-4)};" title="' + lang['REMOVE_FOUR_EXPLAIN'] + '" />';
 				element += '</div>';
-				element += '<br style="clear:both" /><div id="' + dd_id + '_lang">' + lang_select(file_name + '[lang]') + '</div>';
+				element += '<br style="clear:both" /><span id="' + dd_id + '_lang">' + lang_select(file_name + '[lang]') + '</span>';
 			element += '</div>';
 		break;
 	}
