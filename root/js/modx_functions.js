@@ -644,7 +644,7 @@ function add_sql()
 		element += '<dl>';
 			element += '<dt class="sql-rows"><label for="sql-' + field_id + '-dbms">' + lang['DBMS'] + ':</label></dt>';
 			element += '<dd class="sql-rows">';
-				element += '<select name="sql[' + field_id + '][dbms]" id="sql-' + field_id + '-dbms">';
+				element += '<span><select name="sql[' + field_id + '][dbms]" id="sql-' + field_id + '-dbms">';
 					element += '<option value="mysql_40">MySQL 4.0</option>';
 					element += '<option value="mysql_41">MySQL 4.1</option>';
 					element += '<option value="mssaccess">MSSQL</option>';
@@ -653,7 +653,7 @@ function add_sql()
 					element += '<option value="firebird">FireBird</option>';
 					element += '<option value="sqlite">SQLite</option>';
 					element += '<option value="sql-parser" selected="selected">SQL Parser (' + lang['DEFAULT'] + ')</option>';
-				element += '</select>';
+				element += '</select></span>';
 			element += '</dd>';
 		element += '</dl>';
 

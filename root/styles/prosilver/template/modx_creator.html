@@ -454,16 +454,18 @@
 						<dl>
 							<dt class="sql-rows"><label for="sql-{sql_row.FIELD_ID}-dbms">{L_DBMS}:</label></dt>
 							<dd class="sql-rows">
-								<select name="sql[{sql_row.FIELD_ID}][dbms]" id="sql-{sql_row.FIELD_ID}-dbms">
-									<option value="mysql_40"<!-- IF sql_row.DBMS == 'mysql_40' --> selected="selected"<!-- ENDIF -->>MySQL 4.0</option>
-									<option value="mysql_41"<!-- IF sql_row.DBMS == 'mysql_41' --> selected="selected"<!-- ENDIF -->>MySQL 4.1</option>
-									<option value="mssaccess"<!-- IF sql_row.DBMS == 'mssql' --> selected="selected"<!-- ENDIF -->>MSSQL</option>
-									<option value="oracle"<!-- IF sql_row.DBMS == 'oracle' --> selected="selected"<!-- ENDIF -->>Oracle</option>
-									<option value="postgres"<!-- IF sql_row.DBMS == 'postgres' --> selected="selected"<!-- ENDIF -->>PostgreSQL</option>
-									<option value="firebird"<!-- IF sql_row.DBMS == 'firebird' --> selected="selected"<!-- ENDIF -->>FireBird</option>
-									<option value="sqlite"<!-- IF sql_row.DBMS == 'sqlite' --> selected="selected"<!-- ENDIF -->>SQLite</option>
-									<option value="sql-parser"<!-- IF sql_row.DBMS == 'sql-parser' --> selected="selected"<!-- ENDIF -->>SQL Parser ({L_DEFAULT})</option>
-								</select>
+								<span>
+									<select name="sql[{sql_row.FIELD_ID}][dbms]" id="sql-{sql_row.FIELD_ID}-dbms">
+										<option value="mysql_40"<!-- IF sql_row.DBMS == 'mysql_40' --> selected="selected"<!-- ENDIF -->>MySQL 4.0</option>
+										<option value="mysql_41"<!-- IF sql_row.DBMS == 'mysql_41' --> selected="selected"<!-- ENDIF -->>MySQL 4.1</option>
+										<option value="mssaccess"<!-- IF sql_row.DBMS == 'mssql' --> selected="selected"<!-- ENDIF -->>MSSQL</option>
+										<option value="oracle"<!-- IF sql_row.DBMS == 'oracle' --> selected="selected"<!-- ENDIF -->>Oracle</option>
+										<option value="postgres"<!-- IF sql_row.DBMS == 'postgres' --> selected="selected"<!-- ENDIF -->>PostgreSQL</option>
+										<option value="firebird"<!-- IF sql_row.DBMS == 'firebird' --> selected="selected"<!-- ENDIF -->>FireBird</option>
+										<option value="sqlite"<!-- IF sql_row.DBMS == 'sqlite' --> selected="selected"<!-- ENDIF -->>SQLite</option>
+										<option value="sql-parser"<!-- IF sql_row.DBMS == 'sql-parser' --> selected="selected"<!-- ENDIF -->>SQL Parser ({L_DEFAULT})</option>
+									</select>
+								</span>
 							</dd>
 						</dl>
 						<dl>
