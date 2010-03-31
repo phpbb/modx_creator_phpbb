@@ -65,7 +65,7 @@
 							<img class="action-image" src="{T_IMAGESET_PATH}/modx_plus.png" alt="{L_ADD_FOUR}" onclick="document.forms['modxform'].desc_{desc_row.FIELD_ID}_desc.rows+=4" title="{L_ADD_FOUR_EXPLAIN}" />
 							<img class="action-image" src="{T_IMAGESET_PATH}/modx_del.png" alt="{L_REMOVE_FOUR}" onclick="if(document.forms['modxform'].desc_{desc_row.FIELD_ID}_desc.rows>7){document.forms['modxform'].desc_{desc_row.FIELD_ID}_desc.rows-=4}else{document.forms['modxform'].desc_{desc_row.FIELD_ID}_desc.rows-=(document.forms['modxform'].desc_{desc_row.FIELD_ID}_desc.rows-4)};" title="{L_REMOVE_FOUR_EXPLAIN}" />
 						</div>
-						<select class="modx-select" name="desc[{desc_row.FIELD_ID}][lang]">{desc_row.LANG}</select>
+						<select name="desc[{desc_row.FIELD_ID}][lang]">{desc_row.LANG}</select>
 					</dd>
 					<!-- BEGINELSE -->
 					<dd>
@@ -74,7 +74,7 @@
 							<img class="action-image" src="{T_IMAGESET_PATH}/modx_plus.png" alt="{L_ADD_FOUR}" onclick="document.forms['modxform'].desc.rows+=4" title="{L_ADD_FOUR_EXPLAIN}" />
 							<img class="action-image" src="{T_IMAGESET_PATH}/modx_del.png" alt="{L_REMOVE_FOUR}" onclick="if(document.forms['modxform'].desc.rows>7){document.forms['modxform'].desc.rows-=4}else{document.forms['modxform'].desc.rows-=(document.forms['modxform'].desc.rows-4)};" title="{L_REMOVE_FOUR_EXPLAIN}" />
 						</div>
-						<select class="modx-select" name="desc[desc_pre][lang]">{LANG_SELECT}</select>
+						<select name="desc[desc_pre][lang]">{LANG_SELECT}</select>
 					</dd>
 					<!-- END desc_row -->
 				</dl>
@@ -155,7 +155,7 @@
 							<img class="action-image" src="{T_IMAGESET_PATH}/modx_plus.png" alt="{L_ADD_FOUR}" onclick="document.forms['modxform'].notes_{notes_row.FIELD_ID}_note.rows+=4" title="{L_ADD_FOUR_EXPLAIN}" />
 							<img class="action-image" src="{T_IMAGESET_PATH}/modx_del.png" alt="{L_REMOVE_FOUR}" onclick="if(document.forms['modxform'].notes_{notes_row.FIELD_ID}_note.rows>7){document.forms['modxform'].notes_{notes_row.FIELD_ID}_note.rows-=4}else{document.forms['modxform'].notes_{notes_row.FIELD_ID}_note.rows-=(document.forms['modxform'].notes_{notes_row.FIELD_ID}_note.rows-4)};" title="{L_REMOVE_FOUR_EXPLAIN}" />
 						</div>
-						<select class="modx-select" name="notes[{notes_row.FIELD_ID}][lang]">{notes_row.LANG}</select>
+						<select name="notes[{notes_row.FIELD_ID}][lang]">{notes_row.LANG}</select>
 					</dd>
 					<!-- BEGINELSE -->
 					<dd id="notes_pre">
@@ -165,7 +165,7 @@
 							<img class="action-image" src="{T_IMAGESET_PATH}/modx_plus.png" alt="{L_ADD_FOUR}" onclick="document.forms['modxform'].notes_desc_pre_note.rows+=4" title="{L_ADD_FOUR_EXPLAIN}" />
 							<img class="action-image" src="{T_IMAGESET_PATH}/modx_del.png" alt="{L_REMOVE_FOUR}" onclick="if(document.forms['modxform'].notes_desc_pre_note.rows>7){document.forms['modxform'].notes_desc_pre_note.rows-=4}else{document.forms['modxform'].notes_desc_pre_note.rows-=(document.forms['modxform'].notes_desc_pre_note.rows-4)};" title="{L_REMOVE_FOUR_EXPLAIN}" />
 						</div>
-						<select class="modx-select" name="notes[desc_pre][lang]">{LANG_SELECT}</select>
+						<select name="notes[desc_pre][lang]">{LANG_SELECT}</select>
 					</dd>
 					<!-- END notes_row -->
 				</dl>
@@ -605,7 +605,7 @@
 						<img id="{diy_row.FIELD_ID}-plus" class="action-image" src="{T_IMAGESET_PATH}/modx_plus.png" alt="{L_ADD_FOUR}" onclick="document.forms['modxform'].diy_{diy_row.FIELD_ID}_diy.rows+=4" title="{LADD_FOUR_EXPLAIN_}" />
 						<img id="{diy_row.FIELD_ID}-minus" class="action-image" src="{T_IMAGESET_PATH}/modx_del.png" alt="{L_REMOVE_FOUR}" onclick="if(document.forms['modxform'].diy_{diy_row.FIELD_ID}_diy.rows>7){document.forms['modxform'].diy_{diy_row.FIELD_ID}_diy.rows-=4}else{document.forms['modxform'].diy_{diy_row.FIELD_ID}_diy.rows-=(document.forms['modxform'].diy_{diy_row.FIELD_ID}_diy.rows-4)};" title="{L_REMOVE_FOUR_EXPLAIN}" />
 					</div>
-					<select class="modx-select" name="diy[{diy_row.FIELD_ID}][lang]">{diy_row.LANG}</select>
+					<select name="diy[{diy_row.FIELD_ID}][lang]">{diy_row.LANG}</select>
 				</dd>
 				<!-- BEGINELSE -->
 				<dd id="diy_0">
@@ -615,7 +615,7 @@
 						<img id="diy0-plus" class="action-image" src="{T_IMAGESET_PATH}/modx_plus.png" alt="{L_ADD_FOUR}" onclick="document.forms['modxform'].diy_01.rows+=4" title="{ADD_FOUR_EXPLAIN}" />
 						<img id="diy0-minus" class="action-image" src="{T_IMAGESET_PATH}/modx_del.png" alt="{L_REMOVE_FOUR}" onclick="if(document.forms['modxform'].diy_01.rows>7){document.forms['modxform'].diy_01.rows-=4}else{document.forms['modxform'].diy_01.rows-=(document.forms['modxform'].diy_01.rows-4)};" title="{L_REMOVE_FOUR_EXPLAIN}" />
 					</div>
-					<select class="modx-select" name="diy[desc_pre][lang]">{LANG_SELECT}</select>
+					<select name="diy[desc_pre][lang]">{LANG_SELECT}</select>
 				</dd>
 				<!-- END diy_row -->
 			</dl>
