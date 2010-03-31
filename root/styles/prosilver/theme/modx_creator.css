@@ -92,3 +92,8 @@ fieldset.modx-level2 textarea.right-tools {
 .modx-level2 dd img {
 	vertical-align: top !important;
 }
+
+.modx-level2 dt {
+	white-space: nowrap;
+	margin-left: 3px;
+}
