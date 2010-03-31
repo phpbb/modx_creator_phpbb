@@ -88,3 +88,7 @@ fieldset.modx-level2 textarea.right-tools {
 .modx-edit {
 	border-top: 1px dashed #CCC;
 }
+
+.modx-level2 dd img {
+	vertical-align: top !important;
+}
