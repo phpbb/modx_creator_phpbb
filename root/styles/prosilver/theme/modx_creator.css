@@ -53,7 +53,7 @@ textarea.right-tools {
 }
 
 fieldset.modx-level1 {
-	background-color: transparent;
+	background-color: #FFFFFF;
 	padding: 10px;
 	margin-top: 5px;
 	margin-bottom: 10px;
@@ -73,6 +73,15 @@ fieldset.modx-level2 {
 }
 
 fieldset.modx-level2 dd span {
+	margin-left: 3em;
+}
+
+fieldset.modx-level2 dt span {
+	white-space: nowrap;
+	margin-left: 3px;
+}
+
+.modx-level2 dd span {
 	margin-left: 3em;
 }
 

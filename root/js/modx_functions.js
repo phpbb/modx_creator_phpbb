@@ -238,7 +238,7 @@ function act_file()
 		element += '<hr /><br />';
 
 		element += '<fieldset class="modx-level2" id="' + edit_id + '">';
-			element += '<legend> ' + lang['EDIT'];
+			element += '<legend>Edit';
 				element += ' <img class="sign" src="' + image_path + 'modx_info.png" alt="' + lang['INFO_ICON'] + '" title="' + lang['EDIT_EXPLAIN'] + '" /> ';
 				element += '<img class="action-image" src="' + image_path + 'modx_delete.png" alt="' + lang['DELETE'] + '" onclick="$(\'#' + edit_id + '\').remove()" />';
 				element += '<button type="button" class="button1" onclick="modx_add_field(\'modx[' + file_id + ']\', \'' + edit_id + '\', \'edit\', \'above\', 1);">' + lang['EDIT_ADD_ABOVE'] + '</button> ';

@@ -1,29 +1,29 @@
 <!-- INCLUDE overall_header.html -->
 
-<h2>{L_MODX_CREATOR_CONVERTOR}</h2>
+<h1>{L_MODX_CREATOR_CONVERTOR}</h1>
 
 <div class="modx-creator">
 <form action="{U_MODX_CREATOR}" method="post" id="modxform" enctype="multipart/form-data">
-	<div class="panel bg2">
+	<div class="panel">
+		<h3 class="panel_desc">{L_UPLOAD}</h3>
 		<div class="inner">
 			<!-- IF S_ERRORS --><div id="error-div">{L_WHERE_ERRORS}</div><!-- ENDIF -->
 			<!-- IF S_WARNINGS --><div id="warning-div">{L_WHERE_WARNINGS}</div><!-- ENDIF -->
-			<h3>{L_UPLOAD}</h3>
+			
 			<fieldset class="modx fields2">
-				<strong><label for="upload-file">{L_CAN_IMPORT}</label></strong><br />
+				<label for="upload-file">{L_CAN_IMPORT}</label><br />
 				<input type="hidden" name="MAX_FILE_SIZE" value="307200" />
-				<input type="file" name="upload-file" id="upload-file" accept="text/xml,text/plain" size="60" />
-				<input type="submit" name="submit-file" value="{L_SUBMIT}" onclick="this.form.target='_self';" />
-
-				<hr class="dashed" />
-				{L_MODX_FILES}: <a href="file.php?file=modx.prosilver.en.xsl">{L_DOWNLOAD_MODX}</a> &bull; <a href="file.php?file=license.txt">{L_DOWNLOAD_LICENSE}</a>
+				<input class="btnfile" type="file" name="upload-file" id="upload-file" accept="text/xml,text/plain" size="60" />
+				<input class="btnmain" type="submit" name="submit-file" value="{L_SUBMIT}" onclick="this.form.target='_self';" />
+				<hr />
+				{L_MODX_FILES}: <a href="modx_file.php?file=modx.prosilver.en.xsl">{L_DOWNLOAD_MODX}</a> &bull; <a href="modx_file.php?file=license.txt">{L_DOWNLOAD_LICENSE}</a>
 			</fieldset>
 		</div>
 	</div>
 
 	<div class="panel">
+		<h3 class="panel_desc">{L_ABOUT_MOD}</h3>
 		<div class="inner">
-			<h3>{L_ABOUT_MOD}</h3>
 			<fieldset class="modx fields2">
 				<!-- begin mod title -->
 				<dl id="title-field"<!-- IF S_ERROR_TITLE --> class="error-dl"<!-- ENDIF -->>
@@ -65,7 +65,7 @@
 							<img class="action-image" src="{T_IMAGESET_PATH}/modx_plus.png" alt="{L_ADD_FOUR}" onclick="document.forms['modxform'].desc_{desc_row.FIELD_ID}_desc.rows+=4" title="{L_ADD_FOUR_EXPLAIN}" />
 							<img class="action-image" src="{T_IMAGESET_PATH}/modx_del.png" alt="{L_REMOVE_FOUR}" onclick="if(document.forms['modxform'].desc_{desc_row.FIELD_ID}_desc.rows>7){document.forms['modxform'].desc_{desc_row.FIELD_ID}_desc.rows-=4}else{document.forms['modxform'].desc_{desc_row.FIELD_ID}_desc.rows-=(document.forms['modxform'].desc_{desc_row.FIELD_ID}_desc.rows-4)};" title="{L_REMOVE_FOUR_EXPLAIN}" />
 						</div>
-						<select name="desc[{desc_row.FIELD_ID}][lang]">{desc_row.LANG}</select>
+						<br /><select class="modx-select" name="desc[{desc_row.FIELD_ID}][lang]">{desc_row.LANG}</select>
 					</dd>
 					<!-- BEGINELSE -->
 					<dd>
@@ -74,7 +74,7 @@
 							<img class="action-image" src="{T_IMAGESET_PATH}/modx_plus.png" alt="{L_ADD_FOUR}" onclick="document.forms['modxform'].desc.rows+=4" title="{L_ADD_FOUR_EXPLAIN}" />
 							<img class="action-image" src="{T_IMAGESET_PATH}/modx_del.png" alt="{L_REMOVE_FOUR}" onclick="if(document.forms['modxform'].desc.rows>7){document.forms['modxform'].desc.rows-=4}else{document.forms['modxform'].desc.rows-=(document.forms['modxform'].desc.rows-4)};" title="{L_REMOVE_FOUR_EXPLAIN}" />
 						</div>
-						<select name="desc[desc_pre][lang]">{LANG_SELECT}</select>
+						<br /><select class="modx-select" name="desc[desc_pre][lang]">{LANG_SELECT}</select>
 					</dd>
 					<!-- END desc_row -->
 				</dl>
@@ -155,7 +155,7 @@
 							<img class="action-image" src="{T_IMAGESET_PATH}/modx_plus.png" alt="{L_ADD_FOUR}" onclick="document.forms['modxform'].notes_{notes_row.FIELD_ID}_note.rows+=4" title="{L_ADD_FOUR_EXPLAIN}" />
 							<img class="action-image" src="{T_IMAGESET_PATH}/modx_del.png" alt="{L_REMOVE_FOUR}" onclick="if(document.forms['modxform'].notes_{notes_row.FIELD_ID}_note.rows>7){document.forms['modxform'].notes_{notes_row.FIELD_ID}_note.rows-=4}else{document.forms['modxform'].notes_{notes_row.FIELD_ID}_note.rows-=(document.forms['modxform'].notes_{notes_row.FIELD_ID}_note.rows-4)};" title="{L_REMOVE_FOUR_EXPLAIN}" />
 						</div>
-						<select name="notes[{notes_row.FIELD_ID}][lang]">{notes_row.LANG}</select>
+						<br /><select class="modx-select" name="notes[{notes_row.FIELD_ID}][lang]">{notes_row.LANG}</select>
 					</dd>
 					<!-- BEGINELSE -->
 					<dd id="notes_pre">
@@ -165,7 +165,7 @@
 							<img class="action-image" src="{T_IMAGESET_PATH}/modx_plus.png" alt="{L_ADD_FOUR}" onclick="document.forms['modxform'].notes_desc_pre_note.rows+=4" title="{L_ADD_FOUR_EXPLAIN}" />
 							<img class="action-image" src="{T_IMAGESET_PATH}/modx_del.png" alt="{L_REMOVE_FOUR}" onclick="if(document.forms['modxform'].notes_desc_pre_note.rows>7){document.forms['modxform'].notes_desc_pre_note.rows-=4}else{document.forms['modxform'].notes_desc_pre_note.rows-=(document.forms['modxform'].notes_desc_pre_note.rows-4)};" title="{L_REMOVE_FOUR_EXPLAIN}" />
 						</div>
-						<select name="notes[desc_pre][lang]">{LANG_SELECT}</select>
+						<br /><select class="modx-select" name="notes[desc_pre][lang]">{LANG_SELECT}</select>
 					</dd>
 					<!-- END notes_row -->
 				</dl>
@@ -174,10 +174,10 @@
 		</div>
 	</div>
 
-	<div class="panel bg2">
+	<div class="panel">
+		<h3 class="panel_desc">{L_ABOUT_AUTHORS}</h3>
 		<div class="inner">
 			<!-- begin Author fields -->
-				<h3>{L_ABOUT_AUTHORS}</h3>
 				<div id="authors">
 					<!-- BEGIN author_row -->
 					<fieldset class="modx modx-level1 fields2" id="{author_row.FIELD_ID}_a">
@@ -284,16 +284,16 @@
 					</fieldset>
 					<!-- END author_row -->
 				</div>
-				<input class="button2 adjusted-size" type="button" value="{L_AUTHOR_ADD}" onclick="add_author();" />
+				<input class="button2" type="button" value="{L_AUTHOR_ADD}" onclick="add_author();" />
 				<img class="sign" src="{T_IMAGESET_PATH}/modx_info.png" alt="{L_INFO_ICON}" title="{L_AUTHOR_ADD_EXPLAIN}" />
 			<!-- end Author fields -->
 		</div>
 	</div>
 
 	<div class="panel">
+		<h3 class="panel_desc">{L_HISTORY}</h3>
 		<div class="inner">
 			<!-- begin History fields -->
-			<h3>{L_HISTORY}</h3>
 			<div id="history-fields">
 				<!-- BEGIN history_row -->
 				<fieldset class="modx modx-level1 fields2" id="d{history_row.FIELD_ID}">
@@ -331,17 +331,16 @@
 				</fieldset>
 				<!-- END history_row -->
 			</div>
-			<input class="button2 adjusted-size" type="button" value="{L_HISTORY_ADD}" onclick="add_history();" />
+			<input class="button2" type="button" value="{L_HISTORY_ADD}" onclick="add_history();" />
 			<img class="sign" src="{T_IMAGESET_PATH}/modx_info.png" alt="{L_INFO_ICON}" title="{L_HISTORY_EXPLAIN}" />
-			<label>{L_HISTORY_SORT} <input type="checkbox" name="reverse_history" /></label>
+			<br /><label>{L_HISTORY_SORT} <input type="checkbox" name="reverse_history" /></label>
 		<!-- end History fields -->
 	</div>
 </div>
 
-<div class="panel bg2">
+<div class="panel">
+	<h3 class="panel_desc">{L_LINKS}, {L_FILE_COPY}, {L_DELETE} {L_AND} {L_SQL}</h3>
 	<div class="inner">
-		<h3>{L_LINKS}, {L_FILE_COPY}, {L_DELETE} {L_AND} {L_SQL}</h3>
-
 			<!-- begin Link fields -->
 			<fieldset class="modx modx-level1 fields2">
 				<legend class="main-legend">{L_LINKS}</legend>
@@ -490,8 +489,8 @@
 </div>
 
 	<div class="panel">
+		<h3 class="panel_desc">{L_FILE_EDITS}</h3>
 		<div class="inner">
-		<h3>{L_FILE_EDITS}</h3>
 			<div id="modx-field">
 				<!-- BEGIN file_row -->
 				<fieldset class="modx modx-level1 fields2 file-edit" id="{file_row.FILE_ID}">
@@ -561,17 +560,17 @@
 				</fieldset>
 				<!-- END file_row -->
 			</div>
-			<input class="button2 adjusted-size" type="button" value="{L_FILE_ADD}" onclick="act_file();" />
+			<input class="button2" type="button" value="{L_FILE_ADD}" onclick="act_file();" />
 			<img class="sign" src="{T_IMAGESET_PATH}/modx_info.png" alt="{L_INFO_ICON}" title="{L_FILE_ADD_EDITS_EXPLAIN}" />
 
 		<!-- end the damage -->
 		</div>
 	</div>
 
-	<div class="panel bg2">
+	<div class="panel">
+		<h3 class="panel_desc">{L_PHP_INSTALL_FILE}</h3>
 		<div class="inner">
 		<!-- begin PHP-installer -->
-			<h3>{L_PHP_INSTALL_FILE}</h3>
 			<fieldset class="modx fields2">
 			<dl>
 				<dt>
@@ -585,10 +584,10 @@
 		</div>
 	</div>
 
-	<div class="panel bg2">
+	<div class="panel">
+		<h3 class="panel_desc">{L_DIY_INSTRUCTIONS}</h3>
 		<div class="inner">
 		<!-- begin DIY -->
-			<h3>{L_DIY_INSTRUCTIONS}</h3>
 			<fieldset class="modx fields2">
 			<!-- Do It Yourseld -->
 			<dl id="diy-field">
@@ -605,7 +604,7 @@
 						<img id="{diy_row.FIELD_ID}-plus" class="action-image" src="{T_IMAGESET_PATH}/modx_plus.png" alt="{L_ADD_FOUR}" onclick="document.forms['modxform'].diy_{diy_row.FIELD_ID}_diy.rows+=4" title="{LADD_FOUR_EXPLAIN_}" />
 						<img id="{diy_row.FIELD_ID}-minus" class="action-image" src="{T_IMAGESET_PATH}/modx_del.png" alt="{L_REMOVE_FOUR}" onclick="if(document.forms['modxform'].diy_{diy_row.FIELD_ID}_diy.rows>7){document.forms['modxform'].diy_{diy_row.FIELD_ID}_diy.rows-=4}else{document.forms['modxform'].diy_{diy_row.FIELD_ID}_diy.rows-=(document.forms['modxform'].diy_{diy_row.FIELD_ID}_diy.rows-4)};" title="{L_REMOVE_FOUR_EXPLAIN}" />
 					</div>
-					<select name="diy[{diy_row.FIELD_ID}][lang]">{diy_row.LANG}</select>
+					<br /><select class="modx-select" name="diy[{diy_row.FIELD_ID}][lang]">{diy_row.LANG}</select>
 				</dd>
 				<!-- BEGINELSE -->
 				<dd id="diy_0">
@@ -615,7 +614,7 @@
 						<img id="diy0-plus" class="action-image" src="{T_IMAGESET_PATH}/modx_plus.png" alt="{L_ADD_FOUR}" onclick="document.forms['modxform'].diy_01.rows+=4" title="{ADD_FOUR_EXPLAIN}" />
 						<img id="diy0-minus" class="action-image" src="{T_IMAGESET_PATH}/modx_del.png" alt="{L_REMOVE_FOUR}" onclick="if(document.forms['modxform'].diy_01.rows>7){document.forms['modxform'].diy_01.rows-=4}else{document.forms['modxform'].diy_01.rows-=(document.forms['modxform'].diy_01.rows-4)};" title="{L_REMOVE_FOUR_EXPLAIN}" />
 					</div>
-					<select name="diy[desc_pre][lang]">{LANG_SELECT}</select>
+					<br /><select class="modx-select" name="diy[desc_pre][lang]">{LANG_SELECT}</select>
 				</dd>
 				<!-- END diy_row -->
 			</dl>
@@ -625,7 +624,7 @@
 	</div>
 
 	<div id="page-footer">
-		<fieldset class="modx submit-buttons" style="text-align: center;">
+		<fieldset class="modx submit-buttons">
 
 			<!-- BEGIN meta_row -->
 				<input type="hidden" name="meta[{meta_row.FIELD_ID}][name]" value="{meta_row.NAME}" />
