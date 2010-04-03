@@ -1,0 +1,644 @@
+<!-- INCLUDE overall_header.html -->
+
+<h2>{L_MODX_CREATOR_CONVERTOR}</h2>
+
+<form action="{U_MODX_CREATOR}" method="post" id="modxform" enctype="multipart/form-data">
+	<div class="panel bg2">
+		<div class="inner"><span class="corners-top"><span></span></span>
+			<!-- IF S_ERRORS --><div id="error-div">{L_WHERE_ERRORS}</div><!-- ENDIF -->
+			<!-- IF S_WARNINGS --><div id="warning-div">{L_WHERE_WARNINGS}</div><!-- ENDIF -->
+			<h3>{L_UPLOAD}</h3>
+			<fieldset class="fields2">
+				<strong><label for="upload-file">{L_CAN_IMPORT}</label></strong><br />
+				<input type="hidden" name="MAX_FILE_SIZE" value="307200" />
+				<input class="inputbox autowidth" type="file" name="upload-file" id="upload-file" accept="text/xml,text/plain" size="60" />
+				<input type="submit" name="submit-file" value="{L_SUBMIT}" onclick="this.form.target='_self';" />
+
+				<hr class="dashed" />
+				{L_MODX_FILES}: <a href="{U_MODX_FILE}?file=modx.prosilver.en.xsl">{L_DOWNLOAD_MODX}</a> &bull; <a href="{U_MODX_FILE}?file=license.txt">{L_DOWNLOAD_LICENSE}</a>
+			</fieldset>
+		<span class="corners-bottom"><span></span></span></div>
+	</div>
+
+	<div class="panel">
+		<div class="inner"><span class="corners-top"><span></span></span>
+			<h3>{L_ABOUT_MOD}</h3>
+			<fieldset class="fields2">
+				<!-- begin mod title -->
+				<dl id="title-field"<!-- IF S_ERROR_TITLE --> class="error-dl"<!-- ENDIF -->>
+					<dd id="help-title" class="modx-help" style="display: none;">{L_TITLE_EXPLAIN}</dd>
+					<dt>
+						<label for="title">{L_TITLE}:*</label>
+						<img class="action-image" src="{T_IMAGESET_PATH}/modx_plus.png" alt="{L_TITLE_ADD}" onclick="add_title();" title="{L_TITLE_ADD_EPLAIN}" />
+						<img class="sign" src="{T_IMAGESET_PATH}/modx_info.png" alt="{L_INFO_ICON}" title="{L_TITLE_EXPLAIN}" />
+					</dt>
+					<!-- BEGIN title_row -->
+					<dd id="{title_row.FIELD_ID}">
+						<input class="inputbox medium" type="text" name="title[{title_row.FIELD_ID}][title]"<!-- IF title_row.S_ROW_COUNT == 0 --> id="title"<!-- ENDIF --> size="53" maxlength="255" value="{title_row.VALUE}" />
+						<select name="title[{title_row.FIELD_ID}][lang]">{title_row.LANG}</select>
+						<!-- IF title_row.S_ROW_COUNT > 0 --><img class="action-image" src="{T_IMAGESET_PATH}/modx_delete.png" alt="{L_DELETE}" onclick="$('#{title_row.FIELD_ID}').remove()" /><!-- ENDIF -->
+					</dd>
+					<!-- BEGINELSE -->
+					<dd>
+						<input class="inputbox medium" type="text" name="title[title_pre][title]" id="title" size="53" maxlength="255" value="" />
+						<select name="title[title_pre][lang]">{LANG_SELECT}</select>
+					</dd>
+					<!-- END title_row -->
+				</dl>
+				<!-- end mod title -->
+
+				<!-- begin mod description -->
+				<dl id="desc-field"<!-- IF S_ERROR_DESC --> class="error-dl"<!-- ENDIF -->>
+					<dt>
+						<label for="desc">{L_DESCRIPTION}:*</label>
+						<img class="action-image" src="{T_IMAGESET_PATH}/modx_plus.png" alt="{L_DESCRIPTION_ADD}" onclick="add_desc();" title="{L_DESCRIPTION_ADD_EXPLAIN}" />
+						<img class="sign" src="{T_IMAGESET_PATH}/modx_info.png" alt="{L_INFO_ICON}" title="{L_DESCRIPTION_EXPLAIN}" />
+					</dt>
+					<!-- BEGIN desc_row -->
+					<dd id="{desc_row.FIELD_ID}">
+						<!-- IF not desc_row.S_FIRST_ROW --><br /><!-- ENDIF -->
+						<textarea class="inputbox right-tools" name="desc[{desc_row.FIELD_ID}][desc]" id="desc_{desc_row.FIELD_ID}_desc" rows="{desc_row.ROWS}">{desc_row.VALUE}</textarea>
+						<div class="right-tools">
+							<!-- IF desc_row.S_ROW_COUNT > 0 -->
+							<img class="action-image" src="{T_IMAGESET_PATH}/modx_delete.png" alt="{L_DELETE}" onclick="$('#{desc_row.FIELD_ID}').remove()" /><!-- ENDIF -->
+							<img class="action-image" src="{T_IMAGESET_PATH}/modx_plus.png" alt="{L_ADD_FOUR}" onclick="document.forms['modxform'].desc_{desc_row.FIELD_ID}_desc.rows+=4" title="{L_ADD_FOUR_EXPLAIN}" />
+							<img class="action-image" src="{T_IMAGESET_PATH}/modx_del.png" alt="{L_REMOVE_FOUR}" onclick="if(document.forms['modxform'].desc_{desc_row.FIELD_ID}_desc.rows>7){document.forms['modxform'].desc_{desc_row.FIELD_ID}_desc.rows-=4}else{document.forms['modxform'].desc_{desc_row.FIELD_ID}_desc.rows-=(document.forms['modxform'].desc_{desc_row.FIELD_ID}_desc.rows-4)};" title="{L_REMOVE_FOUR_EXPLAIN}" />
+						</div>
+						<br style="clear:both" /><select name="desc[{desc_row.FIELD_ID}][lang]">{desc_row.LANG}</select>
+					</dd>
+					<!-- BEGINELSE -->
+					<dd>
+						<textarea class="inputbox right-tools" name="desc[desc_pre][desc]" id="desc" cols="45" rows="5"></textarea>
+						<div class="right-tools">
+							<img class="action-image" src="{T_IMAGESET_PATH}/modx_plus.png" alt="{L_ADD_FOUR}" onclick="document.forms['modxform'].desc.rows+=4" title="{L_ADD_FOUR_EXPLAIN}" />
+							<img class="action-image" src="{T_IMAGESET_PATH}/modx_del.png" alt="{L_REMOVE_FOUR}" onclick="if(document.forms['modxform'].desc.rows>7){document.forms['modxform'].desc.rows-=4}else{document.forms['modxform'].desc.rows-=(document.forms['modxform'].desc.rows-4)};" title="{L_REMOVE_FOUR_EXPLAIN}" />
+						</div>
+						<br style="clear:both" /><select name="desc[desc_pre][lang]">{LANG_SELECT}</select>
+					</dd>
+					<!-- END desc_row -->
+				</dl>
+				<!-- end mod description -->
+
+				<!-- begin mod version -->
+				<dl<!-- IF S_ERROR_VERSION --> class="error-dl"<!-- ENDIF -->>
+					<dt>
+						<label for="version">{L_MOD_VERSION}:*</label>
+						<img class="sign" src="{T_IMAGESET_PATH}/modx_info.png" alt="{L_INFO_ICON}" title="{L_MOD_VERSION_EXPLAIN}" />
+					</dt>
+					<dd><input class="inputbox autowidth" type="text" name="version" id="version" size="10" maxlength="25" value="{MOD_VERSION}" /></dd>
+				</dl>
+				<!-- end mod version -->
+
+				<!-- begin phpBB version -->
+				<dl<!-- IF S_ERROR_TARGET --> class="error-dl"<!-- ELSEIF S_WARNING_TARGET --> class="warning-dl"<!-- ENDIF -->>
+					<dt>
+						<label for="target">{L_PHPBB_VERSION}:*</label>
+						<img class="sign" src="{T_IMAGESET_PATH}/modx_info.png" alt="{L_INFO_ICON}" title="{L_PHPBB_VERSION_EXPLAIN}" />
+					</dt>
+					<dd>
+						<input class="inputbox autowidth" type="text" name="target" id="target" size="10" maxlength="25" value="{TARGET_VERSION}" />
+						{L_PHPBB_VERSION_LATEST}: {PHPBB_LATEST}
+					</dd>
+				</dl>
+				<!-- end phpBB version -->
+
+				<!-- begin Installation level -->
+				<dl<!-- IF S_ERROR_INSTALL_LEVEL --> class="error-dl"<!-- ENDIF -->>
+
+					<dt>
+						<label for="install-level">{L_INSTALLATION_LEVEL}:*</label>
+					</dt>
+					<dd>
+						<select name="install-level" id="install-level">
+							<option value="easy"<!-- IF INSTALL_LEVEL == 'easy' --> selected="selected"<!-- ENDIF -->>{L_EASY}</option>
+							<option value="intermediate"<!-- IF INSTALL_LEVEL == 'intermediate' --> selected="selected"<!-- ENDIF -->>{L_INTERMEDIATE}</option>
+							<option value="advanced"<!-- IF INSTALL_LEVEL == 'advanced' --> selected="selected"<!-- ENDIF -->>{L_ADVANCED}</option>
+						</select>
+					</dd>
+				</dl>
+				<!-- end Installation level -->
+
+				<!-- begin Installation time -->
+				<dl<!-- IF S_ERROR_INSTALL_TIME --> class="error-dl"<!-- ENDIF -->>
+					<dt>
+						<label for="install-time">{L_INSTALLATION_TIME}:*</label>
+						<img class="sign" src="{T_IMAGESET_PATH}/modx_info.png" alt="{L_INFO_ICON}" title="{L_INSTALLATION_TIME_EXPLAIN}" />
+					</dt>
+					<dd><input class="inputbox autowidth" type="text" name="install-time" id="install-time" size="2" maxlength="3" value="{INSTALL_TIME}" />{L_MINUTES}</dd>
+				</dl>
+				<!-- end Installation time -->
+
+				<!-- begin License -->
+				<dl>
+					<dt>
+						<label for="license">{L_LICENSE}:*</label>
+						<img class="sign" src="{T_IMAGESET_PATH}/modx_info.png" alt="{L_INFO_ICON}" title="{L_LICENSE_EXPLAIN}" />
+					</dt>
+					<dd><input class="inputbox" id="license" type="text" name="license" size="70" maxlength="255" value="{LICENSE}" /></dd>
+				</dl>
+				<!-- end License -->
+
+				<!-- begin Author notes -->
+				<dl id="notes-field">
+					<dt id="notes">
+						<label for="notes">{L_AUTHOR_NOTES}:</label>
+						<img class="action-image" src="{T_IMAGESET_PATH}/modx_plus.png" alt="{L_ADD}" onclick="add_notes();" title="{L_AUTHOR_NOTES_ADD}" />
+						<img class="sign" src="{T_IMAGESET_PATH}/modx_info.png" alt="{L_INFO_ICON}" title="{L_AUTHOR_NOTES_EXPLAIN}" />
+					</dt>
+					<!-- BEGIN notes_row -->
+					<dd id="{notes_row.FIELD_ID}">
+						<!-- IF not notes_row.S_FIRST_ROW --><br /><!-- ENDIF -->
+						<textarea class="inputbox right-tools" name="notes[{notes_row.FIELD_ID}][note]" id="notes_{notes_row.FIELD_ID}_note" rows="{notes_row.ROWS}">{notes_row.VALUE}</textarea>
+						<div class="right-tools">
+							<img class="action-image" src="{T_IMAGESET_PATH}/modx_delete.png" alt="{L_DELETE}" onclick="$('#{notes_row.FIELD_ID}').remove()" />
+							<img class="action-image" src="{T_IMAGESET_PATH}/modx_plus.png" alt="{L_ADD_FOUR}" onclick="document.forms['modxform'].notes_{notes_row.FIELD_ID}_note.rows+=4" title="{L_ADD_FOUR_EXPLAIN}" />
+							<img class="action-image" src="{T_IMAGESET_PATH}/modx_del.png" alt="{L_REMOVE_FOUR}" onclick="if(document.forms['modxform'].notes_{notes_row.FIELD_ID}_note.rows>7){document.forms['modxform'].notes_{notes_row.FIELD_ID}_note.rows-=4}else{document.forms['modxform'].notes_{notes_row.FIELD_ID}_note.rows-=(document.forms['modxform'].notes_{notes_row.FIELD_ID}_note.rows-4)};" title="{L_REMOVE_FOUR_EXPLAIN}" />
+						</div>
+						<br style="clear:both" /><select name="notes[{notes_row.FIELD_ID}][lang]">{notes_row.LANG}</select>
+					</dd>
+					<!-- BEGINELSE -->
+					<dd id="notes_pre">
+						<textarea class="inputbox right-tools" name="notes[desc_pre][note]" id="notes_desc_pre_note" cols="40" rows="5"></textarea>
+						<div class="right-tools">
+							<img class="action-image" src="{T_IMAGESET_PATH}/modx_delete.png" alt="{L_DELETE}" onclick="$('#notes_pre').remove()" />
+							<img class="action-image" src="{T_IMAGESET_PATH}/modx_plus.png" alt="{L_ADD_FOUR}" onclick="document.forms['modxform'].notes_desc_pre_note.rows+=4" title="{L_ADD_FOUR_EXPLAIN}" />
+							<img class="action-image" src="{T_IMAGESET_PATH}/modx_del.png" alt="{L_REMOVE_FOUR}" onclick="if(document.forms['modxform'].notes_desc_pre_note.rows>7){document.forms['modxform'].notes_desc_pre_note.rows-=4}else{document.forms['modxform'].notes_desc_pre_note.rows-=(document.forms['modxform'].notes_desc_pre_note.rows-4)};" title="{L_REMOVE_FOUR_EXPLAIN}" />
+						</div>
+						<br style="clear:both" /><select name="notes[desc_pre][lang]">{LANG_SELECT}</select>
+					</dd>
+					<!-- END notes_row -->
+				</dl>
+				<!-- end Author notes -->
+			</fieldset>
+		<span class="corners-bottom"><span></span></span></div>
+	</div>
+
+	<div class="panel bg2">
+		<div class="inner"><span class="corners-top"><span></span></span>
+			<!-- begin Author fields -->
+				<h3>{L_ABOUT_AUTHORS}</h3>
+				<div id="authors">
+					<!-- BEGIN author_row -->
+					<fieldset class="modx-level1 fields2" id="{author_row.FIELD_ID}_a">
+						<dl>
+							<dt class="author-rows"><label for="author-{author_row.FIELD_ID}-username">{L_USERNAME}:*</label></dt>
+							<dd class="author-rows">
+								<input class="inputbox autowidth" type="text" name="author[{author_row.FIELD_ID}][username]" id="author-{author_row.FIELD_ID}-username" size="40" maxlength="255" value="{author_row.USERNAME}" />
+								<!-- IF author_row.S_ROW_COUNT > 0 --><img class="action-image" src="{T_IMAGESET_PATH}/modx_delete.png" alt="{L_DELETE}" onclick="$('#{author_row.FIELD_ID}_a').remove()" /><!-- ENDIF -->
+							</dd>
+						</dl>
+						<dl>
+							<dt class="author-rows"><label for="author-{author_row.FIELD_ID}-phpbbcom">{L_NOT_PHPBB}:</label></dt>
+							<dd class="author-rows">
+								<label>
+									<input type="checkbox" name="author[{author_row.FIELD_ID}][phpbbcom]" id="author-{author_row.FIELD_ID}-phpbbcom"<!-- IF author_row.S_PHPBB_COM --> checked="checked"<!-- ENDIF --> />
+									<span style="font-size: 12px;">({L_NOT_PHPBB_EXPLAIN})</span>
+								</label>
+							</dd>
+						</dl>
+						<dl>
+							<dt class="author-rows"><label for="author-{author_row.FIELD_ID}-realname">{L_REAL_NAME}:</label></dt>
+							<dd class="author-rows">
+								<input class="inputbox autowidth" type="text" name="author[{author_row.FIELD_ID}][realname]" id="author-{author_row.FIELD_ID}-realname" size="40" maxlength="255" value="{author_row.REALNAME}" />
+							</dd>
+						</dl>
+						<dl>
+							<dt class="author-rows"><label for="author-{author_row.FIELD_ID}-homepage">{L_WWW}:</label></dt>
+							<dd class="author-rows">
+								<input class="inputbox autowidth" type="text" name="author[{author_row.FIELD_ID}][homepage]" id="author-{author_row.FIELD_ID}-homepage" size="40" maxlength="255" value="{author_row.HOMEPAGE}" />
+							</dd>
+						</dl>
+						<dl>
+							<dt class="author-rows"><label for="author-{author_row.FIELD_ID}-email">{L_E_MAIL}:</label></dt>
+							<dd class="author-rows">
+								<input class="inputbox autowidth" type="text" name="author[{author_row.FIELD_ID}][email]" id="author-{author_row.FIELD_ID}-email" size="40" maxlength="255" value="{author_row.EMAIL}" />
+							</dd>
+						</dl>
+						<div id="{author_row.FIELD_ID}-pre">
+						<!-- BEGIN contrib -->
+						<fieldset class="modx-level1" id="{author_row.contrib.CONTRIB_ID}">
+							<dl>
+								<dt class="author-rows"><label for="author_row.contributor-{author_row.FIELD_ID}-{author_row.contrib.CONTRIB_ID}-status">{L_STATUS}:</label></dt>
+								<dd class="author-rows">
+									<select name="author[{author_row.FIELD_ID}][contributions][{author_row.contrib.CONTRIB_ID}][status]" id="author_row.contributor-{author_row.FIELD_ID}-{author_row.contrib.CONTRIB_ID}-status">
+										<option value="past"<!-- IF author_row.contrib.STATUS == 'past' --> selected="selected"<!-- ENDIF -->>{L_PAST}</option>
+										<option value="current"<!-- IF author_row.contrib.STATUS != 'past' --> selected="selected"<!-- ENDIF -->>{L_CURRENT}</option>
+									</select>
+									<img class="action-image" src="{T_IMAGESET_PATH}/modx_delete.png" alt="{L_DELETE}" onclick="$('#{author_row.contrib.CONTRIB_ID}').remove()" />
+								</dd>
+							</dl>
+							<dl>
+								<dt class="author-rows"><label for="contributor-{author_row.FIELD_ID}-{author_row.contrib.CONTRIB_ID}-position">{L_POSITION}:</label></dt>
+								<dd class="author-rows">
+									<input type="text" name="author[{author_row.FIELD_ID}][contributions][{author_row.contrib.CONTRIB_ID}][position]" id="contributor-{author_row.FIELD_ID}-{author_row.contrib.CONTRIB_ID}-position" size="40" maxlength="255" value="{author_row.contrib.POSITION}" />
+								</dd>
+							</dl>
+							<dl>
+								<dt class="author-rows"><label for="contributor-{author_row.FIELD_ID}-{author_row.contrib.CONTRIB_ID}-from">{L_FROM}:</label></dt>
+								<dd class="author-rows">
+									<input type="text" name="author[{author_row.FIELD_ID}][contributions][{author_row.contrib.CONTRIB_ID}][from]" id="contributor-{author_row.FIELD_ID}-{author_row.contrib.CONTRIB_ID}-from" size="40" maxlength="255" value="{author_row.contrib.FROM}" />
+								</dd>
+							</dl>
+							<dl>
+								<dt class="author-rows"><label for="contributor-{author_row.FIELD_ID}-{author_row.contrib.CONTRIB_ID}-to">{L_TO}:</label></dt>
+								<dd class="author-rows">
+									<input type="text" name="author[{author_row.FIELD_ID}][contributions][{author_row.contrib.CONTRIB_ID}][to]" id="contributor-{author_row.FIELD_ID}-{author_row.contrib.CONTRIB_ID}-to" size="40" maxlength="255" value="{author_row.contrib.TO}" />
+								</dd>
+							</dl>
+						</fieldset>
+						<!-- END contrib -->
+						</div>
+						<input class="button2" type="button" value="{L_CONTRIBUTION_ADD}" onclick="add_contributor('{author_row.FIELD_ID}');" />
+						<!-- IF author_row.S_ROW_COUNT > 0 --><img class="sign" src="{T_IMAGESET_PATH}/modx_info.png" alt="{L_INFO_ICON}" title="{L_CONTRIBUTION_EXPLAIN}" /><!-- ENDIF -->
+					</fieldset>
+					<!-- BEGINELSE -->
+					<fieldset class="modx-level1 fields2">
+						<dl<!-- IF S_ERROR_AUTHOR --> class="error-dl"<!-- ENDIF -->>
+							<dt class="author-rows"><label for="author-afield-username">{L_USERNAME}:*</label></dt>
+							<dd class="author-rows">
+								<input class="inputbox autowidth" type="text" name="author[afield][username]" id="author-afield-username" size="40" maxlength="255" value="" />
+							</dd>
+						</dl>
+						<dl>
+							<dt class="author-rows"><label for="author-afield-phpbbcom">{L_NOT_PHPBB}:</label></dt>
+							<dd class="author-rows">
+								<label><input type="checkbox" name="author[afield][phpbbcom]" id="author-afield-phpbbcom" /><span style="font-size: 12px;">({L_NOT_PHPBB_EXPLAIN})</span></label>
+							</dd>
+						</dl>
+						<dl>
+							<dt class="author-rows"><label for="author-afield-realname">{L_REAL_NAME}:</label></dt>
+							<dd class="author-rows"><input class="inputbox autowidth" type="text" name="author[afield][realname]" id="author-afield-realname" size="40" maxlength="255" value="" /></dd>
+						</dl>
+						<dl>
+							<dt class="author-rows"><label for="author-afield-homepage">{L_WWW}:</label></dt>
+							<dd class="author-rows"><input class="inputbox autowidth" type="text" name="author[afield][homepage]" id="author-afield-homepage" size="40" maxlength="255" value="" /></dd>
+						</dl>
+						<dl>
+							<dt class="author-rows"><label for="author-afield-email">{L_E_MAIL}:</label></dt>
+							<dd class="author-rows"><input class="inputbox autowidth" type="text" name="author[afield][email]" id="author-afield-email" size="40" maxlength="255" value="" /></dd>
+						</dl>
+						<div id="afield-pre"></div>
+						<input class="button2" type="button" value="{L_CONTRIBUTION_ADD}" onclick="add_contributor('afield');" />
+						<img class="sign" src="{T_IMAGESET_PATH}/modx_info.png" alt="{L_INFO_ICON}" title="{L_CONTRIBUTION_EXPLAIN}" />
+					</fieldset>
+					<!-- END author_row -->
+				</div>
+				<input class="button2 adjusted-size" type="button" value="{L_AUTHOR_ADD}" onclick="add_author();" />
+				<img class="sign" src="{T_IMAGESET_PATH}/modx_info.png" alt="{L_INFO_ICON}" title="{L_AUTHOR_ADD_EXPLAIN}" />
+			<!-- end Author fields -->
+		<span class="corners-bottom"><span></span></span></div>
+	</div>
+
+	<div class="panel">
+		<div class="inner"><span class="corners-top"><span></span></span>
+			<!-- begin History fields -->
+			<h3>{L_HISTORY}</h3>
+			<div id="history-fields">
+				<!-- BEGIN history_row -->
+				<fieldset class="modx-level1 fields2" id="d{history_row.FIELD_ID}">
+					<dl>
+						<dt class="history-rows"><label for="history-{history_row.FIELD_ID}-version">{L_VERSION}:*</label></dt>
+						<dd class="history-rows">
+							<input name="history[{history_row.FIELD_ID}][version]" id="history-{history_row.FIELD_ID}-version" size="10" maxlength="255" value="{history_row.VERSION}" type="text" />
+							<img class="action-image" src="{T_IMAGESET_PATH}/modx_delete.png" alt="{L_DELETE}" onclick="$('#d{history_row.FIELD_ID}').remove()" />
+						</dd>
+					</dl>
+					<dl>
+						<dt class="history-rows"><label for="history-{history_row.FIELD_ID}-date">{L_DATE}:*</label></dt>
+						<dd class="history-rows">
+							<input name="history[{history_row.FIELD_ID}][date]" id="history-{history_row.FIELD_ID}-date" size="20" maxlength="255" value="{history_row.DATE}" type="text" />
+							<span style="font-size: 12px;"> ({L_DATE_EXPLAIN})</span>
+						</dd>
+					</dl>
+					<div id="{history_row.FIELD_ID}">
+
+						<!-- BEGIN changelog -->
+						<hr class="dashed" />
+						<dl id="{history_row.changelog.CHANGE_ID}">
+							<dt class="history-rows">
+								<label for="history-{history_row.FIELD_ID}-changelog-{history_row.changelog.CHANGE_ID}-data">{L_CHANGE}:<!-- IF history_row.changelog.S_ROW_COUNT == 0 -->*<!-- ENDIF --></label>
+							</dt>
+							<dd class="history-rows">
+								<input class="inputbox medium" name="history[{history_row.FIELD_ID}][changelog][{history_row.changelog.CHANGE_ID}][change]" id="history-{history_row.FIELD_ID}-changelog-{history_row.changelog.CHANGE_ID}-data" size="80" maxlength="255" value="{history_row.changelog.CHANGE}" type="text" />
+								<span><select name="history[{history_row.FIELD_ID}][changelog][{history_row.changelog.CHANGE_ID}][lang]">{history_row.changelog.LANG}</select></span>
+								<!-- IF history_row.changelog.S_ROW_COUNT > 0 --><img class="action-image" src="{T_IMAGESET_PATH}/modx_delete.png" alt="{L_DELETE}" onclick="$('#{history_row.changelog.CHANGE_ID}').remove()" /><!-- ENDIF -->
+							</dd>
+						</dl>
+						<!-- END changelog -->
+					</div>
+					<input value="{L_CHANGE_ADD}" onclick="add_history_change('{history_row.FIELD_ID}');" type="button" />
+				</fieldset>
+				<!-- END history_row -->
+			</div>
+			<input class="button2 adjusted-size" type="button" value="{L_HISTORY_ADD}" onclick="add_history();" />
+			<img class="sign" src="{T_IMAGESET_PATH}/modx_info.png" alt="{L_INFO_ICON}" title="{L_HISTORY_EXPLAIN}" />
+			<label>{L_HISTORY_SORT} <input type="checkbox" name="reverse_history" /></label>
+		<!-- end History fields -->
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+
+<div class="panel bg2">
+	<div class="inner"><span class="corners-top"><span></span></span>
+		<h3>{L_LINKS}, {L_FILE_COPY}, {L_DELETE} {L_AND} {L_SQL}</h3>
+
+			<!-- begin Link fields -->
+			<fieldset class="modx-level1 fields2">
+				<legend class="main-legend">{L_LINKS}</legend>
+				<div id="link-field">
+					<!-- BEGIN link_row -->
+					<fieldset class="modx-level2" id="{link_row.FIELD_ID}">
+						<dl>
+							<dt><label for="links-{link_row.FIELD_ID}-type">{L_TYPE}:*</label></dt>
+							<dd>
+								<select name="links[{link_row.FIELD_ID}][type]" id="links-{link_row.FIELD_ID}-type">
+									<option value="contrib"<!-- IF link_row.TYPE == 'contrib' --> selected="selected"<!-- ENDIF -->>{L_CONTRIB}</option>
+									<option value="dependency"<!-- IF link_row.TYPE == 'dependency' --> selected="selected"<!-- ENDIF -->>{L_DEPENDENCY}</option>
+									<option value="language"<!-- IF link_row.TYPE == 'language' --> selected="selected"<!-- ENDIF -->>{L_LANGUAGE}</option>
+									<option value="parent"<!-- IF link_row.TYPE == 'parent' --> selected="selected"<!-- ENDIF -->>{L_PARENT}</option>
+									<option value="template-lang"<!-- IF link_row.TYPE == 'template-lang' --> selected="selected"<!-- ENDIF -->>{L_TEMPLATE_LANG}</option>
+									<option value="template"<!-- IF link_row.TYPE == 'template' --> selected="selected"<!-- ENDIF -->>{L_TEMPLATE}</option>
+									<option value="text"<!-- IF link_row.TYPE == 'text' --> selected="selected"<!-- ENDIF -->>{L_TEXT_FILE}</option>
+									<option value="uninstall"<!-- IF link_row.TYPE == 'uninstall' --> selected="selected"<!-- ENDIF -->>{L_UNINSTALL_INSTRUCTIONS}</option>
+								</select>
+								<img class="action-image" src="{T_IMAGESET_PATH}/modx_delete.png" alt="{L_DELETE}" onclick="$('#{link_row.FIELD_ID}').remove()" />
+							</dd>
+						</dl>
+						<dl>
+							<dt><label for="links-{link_row.FIELD_ID}-title">{L_LINK_TITLE}:*</label></dt>
+							<dd>
+								<input class="inputbox medium" name="links[{link_row.FIELD_ID}][title]" id="links-{link_row.FIELD_ID}-title" size="80" maxlength="255" value="{link_row.TITLE}" type="text" />
+								<select name="links[{link_row.FIELD_ID}][lang]">{link_row.LANG}</select>
+							</dd>
+						</dl>
+						<dl>
+							<dt><label for="links-{link_row.FIELD_ID}-href">{L_HREF}:*</label></dt>
+							<dd>
+								<input class="inputbox medium" name="links[{link_row.FIELD_ID}][href]" id="links-{link_row.FIELD_ID}-href" size="80" maxlength="255" value="{link_row.HREF}" type="text" />
+								<input name="links[{link_row.FIELD_ID}][realname]" value="{link_row.REALNAME}" type="hidden" />
+							</dd>
+						</dl>
+					</fieldset>
+					<!-- END link_row -->
+				</div>
+				<input class="button2" type="button" value="{L_LINK_ADD}" onclick="add_link();" />
+				<img class="sign" src="{T_IMAGESET_PATH}/modx_info.png" alt="{L_INFO_ICON}" title="{L_LINKS_EXPLAIN}" />
+			</fieldset>
+			<!-- end Link fields -->
+
+			<!-- begin File copy -->
+			<fieldset class="modx-level1">
+				<legend class="main-legend">{L_FILE_COPY}</legend>
+				<div id="copy-field">
+					<!-- IF S_IS_COPY -->
+					<fieldset class="modx-level2 fields2" id="dd-copy">
+						<dl id="dl-copy">
+					<!-- ENDIF -->
+					<!-- BEGIN copy_row -->
+						<!-- IF copy_row.S_ROW_COUNT == 0 -->
+								<dt class="copy-rows">
+									<label>{L_COPY_FROM_TO}</label>
+									<img class="action-image" src="{T_IMAGESET_PATH}/modx_plus.png" alt="{L_FILE_ADD}" title="{L_FILE_ADD}" onclick="add_file_copy();" title="Add file" /><img class="action-image" src="{T_IMAGESET_PATH}/modx_delete.png" alt="{L_DELETE}" onclick="$('#dd-copy').remove(); document.getElementById('addCopyField').style.display='';" />
+								</dt>
+						<!-- ENDIF -->
+								<dd class="copy-rows" id="{copy_row.FILE_ID}">
+									<input class="inputbox copy-to" name="copy[{copy_row.FILE_ID}][from]" id="copy-{copy_row.FILE_ID}-from" size="85" maxlength="255" value="{copy_row.FROM}" type="text" />
+									&raquo;
+									<input class="inputbox" name="copy[{copy_row.FILE_ID}][to]" size="85" maxlength="255" value="{copy_row.TO}" type="text" /><img class="action-image" src="{T_IMAGESET_PATH}/modx_delete.png" alt="{L_DELETE}" onclick="$('#{copy_row.FILE_ID}').remove()" />
+								</dd>
+						<!-- END copy_row -->
+					<!-- IF S_IS_COPY -->
+						</dl>
+					</fieldset>
+					<!-- ENDIF -->
+				</div>
+				<input class="button2" id="addCopyField" type="button" value="{L_FILE_FIELD_ADD}" onclick="add_copy(); document.getElementById('addCopyField').style.display='none';"<!-- IF S_IS_COPY --> style="display: none;"<!-- ENDIF --> />
+				<img class="sign" src="{T_IMAGESET_PATH}/modx_info.png" alt="{L_INFO_ICON}" title="{L_FILE_COPY_EXPLAIN}" />
+			</fieldset>
+			<!-- end File copy -->
+
+			<!-- begin File delete -->
+			<fieldset class="modx-level1">
+				<legend class="main-legend">{L_DELETE}</legend>
+				<div id="delete-field">
+					<!-- IF S_IS_DELETE -->
+					<fieldset class="modx-level2 fields2" id="dd-delete">
+						<dl id="dl-delete">
+					<!-- ENDIF -->
+					<!-- BEGIN delete_row -->
+						<!-- IF delete_row.S_ROW_COUNT == 0 -->
+								<dt class="copy-rows">
+									<label>Delete:</label>
+									<img class="action-image" src="{T_IMAGESET_PATH}/modx_plus.png" alt="{L_FILE_ADD}" onclick="add_file_delete();" title="{L_FILE_ADD}" /><img class="action-image" src="{T_IMAGESET_PATH}/modx_delete.png" alt="{L_DELETE}" onclick="$('#dd-delete').remove(); document.getElementById('addDeleteField').style.display='';" />
+								</dt>
+						<!-- ENDIF -->
+								<dd class="copy-rows" id="{delete_row.FILE_ID}">
+									<input class="inputbox copy-to" name="delete[{delete_row.FILE_ID}]" id="delete-{delete_row.FILE_ID}" size="85" maxlength="255" value="{delete_row.FILE}" type="text" /><img class="action-image" src="{T_IMAGESET_PATH}/modx_delete.png" alt="{L_DELETE}" onclick="$('#{delete_row.FILE_ID}').remove()" />
+								</dd>
+						<!-- END delete_row -->
+					<!-- IF S_IS_DELETE -->
+						</dl>
+					</fieldset>
+					<!-- ENDIF -->
+				</div>
+				<input class="button2" id="addDeleteField" type="button" value="{L_DELETE_FIELD_ADD}" onclick="add_delete(); document.getElementById('addDeleteField').style.display='none';"<!-- IF S_IS_DELETE --> style="display: none;"<!-- ENDIF --> />
+				<img class="sign" src="{T_IMAGESET_PATH}/modx_info.png" alt="{L_INFO_ICON}" title="{L_DELETE_FIELD_ADD_EXPLAIN}" />
+			</fieldset>
+			<!-- end File delete -->
+
+			<!-- begin SQL querys -->
+			<fieldset class="modx-level1">
+				<legend class="main-legend">{L_SQL}</legend>
+				<div id="sql-field">
+					<!-- BEGIN sql_row -->
+					<fieldset class="modx-level2 fields2" id="{sql_row.FIELD_ID}">
+						<dl>
+							<dt class="sql-rows"><label for="sql-{sql_row.FIELD_ID}-dbms">{L_DBMS}:</label></dt>
+							<dd class="sql-rows">
+								<span>
+									<select name="sql[{sql_row.FIELD_ID}][dbms]" id="sql-{sql_row.FIELD_ID}-dbms">
+										<option value="mysql_40"<!-- IF sql_row.DBMS == 'mysql_40' --> selected="selected"<!-- ENDIF -->>MySQL 4.0</option>
+										<option value="mysql_41"<!-- IF sql_row.DBMS == 'mysql_41' --> selected="selected"<!-- ENDIF -->>MySQL 4.1</option>
+										<option value="mssaccess"<!-- IF sql_row.DBMS == 'mssql' --> selected="selected"<!-- ENDIF -->>MSSQL</option>
+										<option value="oracle"<!-- IF sql_row.DBMS == 'oracle' --> selected="selected"<!-- ENDIF -->>Oracle</option>
+										<option value="postgres"<!-- IF sql_row.DBMS == 'postgres' --> selected="selected"<!-- ENDIF -->>PostgreSQL</option>
+										<option value="firebird"<!-- IF sql_row.DBMS == 'firebird' --> selected="selected"<!-- ENDIF -->>FireBird</option>
+										<option value="sqlite"<!-- IF sql_row.DBMS == 'sqlite' --> selected="selected"<!-- ENDIF -->>SQLite</option>
+										<option value="sql-parser"<!-- IF sql_row.DBMS == 'sql-parser' --> selected="selected"<!-- ENDIF -->>SQL Parser ({L_DEFAULT})</option>
+									</select>
+								</span>
+							</dd>
+						</dl>
+						<dl>
+							<dt class="sql-rows"><label for="sql-{sql_row.FIELD_ID}-query">{L_QUERY}:*</label></dt>
+							<dd class="sql-rows">
+								<textarea class="inputbox right-tools" name="sql[{sql_row.FIELD_ID}][query]" id="sql_{sql_row.FIELD_ID}_query" rows="{sql_row.ROWS}">{sql_row.QUERY}</textarea>
+								<div class="right-tools">
+									<img class="action-image" src="{T_IMAGESET_PATH}/modx_delete.png" alt="{L_DELETE}" onclick="$('#{sql_row.FIELD_ID}').remove()" />
+									<img class="action-image" src="{T_IMAGESET_PATH}/modx_plus.png" alt="{L_ADD_FOUR}" onclick="document.forms['modxform'].sql_{sql_row.FIELD_ID}_query.rows+=4" title="{L_ADD_FOUR_EXPLAIN}" />
+									<img class="action-image" src="{T_IMAGESET_PATH}/modx_del.png" alt="{L_REMOVE_FOUR}" onclick="if(document.forms['modxform'].sql_{sql_row.FIELD_ID}_query.rows>7){document.forms['modxform'].sql_{sql_row.FIELD_ID}_query.rows-=4}else{document.forms['modxform'].sql_{sql_row.FIELD_ID}_query.rows-=(document.forms['modxform'].sql_{sql_row.FIELD_ID}_query.rows-4)};" title="{L_REMOVE_FOUR_EXPLAIN}" />
+								</div>
+							</dd>
+						</dl>
+					</fieldset>
+					<!-- END sql_row -->
+				</div>
+				<input class="button2" type="button" value="{L_SQL_QUERY_ADD}" onclick="add_sql();" />
+				<img class="sign" src="{T_IMAGESET_PATH}/modx_info.png" alt="{L_INFO_ICON}" title="{L_SQL_EXPLAIN}" />
+			<!-- end SQL querys -->
+
+		</fieldset>
+	<span class="corners-bottom"><span></span></span></div>
+</div>
+
+	<div class="panel">
+		<div class="inner"><span class="corners-top"><span></span></span>
+		<h3>{L_FILE_EDITS}</h3>
+			<div id="modx-field">
+				<!-- BEGIN file_row -->
+				<fieldset class="modx-level1 fields2 file-edit" id="{file_row.FILE_ID}">
+					<dl id="{file_row.DT_ID}">
+						<dt><label>{L_FILE_OPEN}:</label><img class="sign" src="{T_IMAGESET_PATH}/modx_info.png" alt="{L_INFO_ICON}" title="{L_FILE_OPEN_EXPLAIN}" /></dt>
+						<dd>
+							<input class="inputbox medium" name="modx[{file_row.FILE_ID}][file]" size="88" value="{file_row.FILE}" type="text"><img class="action-image" src="{T_IMAGESET_PATH}/modx_delete.png" alt="{L_DELETE}" onclick="$('#{file_row.FILE_ID}').remove()" title="{L_FILE_REMOVE}" />
+						</dd>
+					</dl>
+					<hr />
+					<br />
+					<!-- BEGIN edit -->
+					<fieldset class="modx-level2" id="{file_row.edit.EDIT_ID}">
+						<legend class="sub-legend">
+							{L_EDIT}
+							<img class="sign" src="{T_IMAGESET_PATH}/modx_info.png" alt="{L_INFO_ICON}" title="{L_EDIT_EXPLAIN}" />
+							<img class="action-image" src="{T_IMAGESET_PATH}/modx_delete.png" alt="{L_DELETE}" onclick="$('#{file_row.edit.EDIT_ID}').remove()" />
+							<button type="button" class="button1" onclick="modx_add_field('modx[{file_row.FILE_ID}]', '{file_row.edit.EDIT_ID}', 'edit', 'above', 1)">{L_EDIT_ADD_ABOVE}</button>
+							<button type="button" class="button1" onclick="modx_add_field('modx[{file_row.FILE_ID}]', '{file_row.edit.EDIT_ID}', 'edit', 'below', 1)">{L_EDIT_ADD_BELOW}</button>
+							<strong>{L_EDIT_FIND_EXPLAIN}</strong>
+						</legend>
+						<p style="font-size: 1em;">{L_EDIT_NOTE}</p>
+						<!-- BEGIN action -->
+						<dl id="{file_row.edit.action.DL_ID}"<!-- IF not action.S_FIRST_ROW --> class="modx-edit"<!-- ENDIF -->>
+							<dt id="{file_row.edit.action.DT_ID}">
+								<label>{L_TYPE}: </label>
+								<select class="krav" name="modx[{file_row.FILE_ID}][{file_row.edit.EDIT_ID}][{file_row.edit.action.DL_ID}][type]" onchange="if(this.options[this.selectedIndex].value != '-'){ get_select_change(this.options[this.selectedIndex].value, '{file_row.edit.action.DT_ID}', '{file_row.edit.action.DD_ID}', 'modx[{file_row.FILE_ID}][{file_row.edit.EDIT_ID}][{file_row.edit.action.DL_ID}]', '{file_row.edit.action.DL_ID}') }">
+									<option value="-"<!-- IF file_row.edit.action.TYPE == '-' --> selected="selected"<!-- ENDIF -->>{L_SELECT_TYPE}</option>
+									<option value="comment"<!-- IF file_row.edit.action.TYPE == 'comment' --> selected="selected"<!-- ENDIF -->>{L_COMMENT}</option>
+									<option value="find"<!-- IF file_row.edit.action.TYPE == 'find' --> selected="selected"<!-- ENDIF -->>{L_FIND}</option>
+									<option value="after-add"<!-- IF file_row.edit.action.TYPE == 'after-add' --> selected="selected"<!-- ENDIF -->>{L_ADD_AFTER}</option>
+									<option value="before-add"<!-- IF file_row.edit.action.TYPE == 'before-add' --> selected="selected"<!-- ENDIF -->>{L_ADD_BEFORE}</option>
+									<option value="replace-with"<!-- IF file_row.edit.action.TYPE == 'replace-with' --> selected="selected"<!-- ENDIF -->>{L_REPLACE_WITH}</option>
+									<option value="operation"<!-- IF file_row.edit.action.TYPE == 'operation' --> selected="selected"<!-- ENDIF -->>{L_OPERATION}</option>
+									<option value="remove"<!-- IF file_row.edit.action.TYPE == 'remove' --> selected="selected"<!-- ENDIF -->>{L_REMOVE}</option>
+									<option value="inline-find"<!-- IF file_row.edit.action.TYPE == 'inline-find' --> selected="selected"<!-- ENDIF -->>{L_INLINE_FIND}</option>
+									<option value="inline-after-add"<!-- IF file_row.edit.action.TYPE == 'inline-after-add' --> selected="selected"<!-- ENDIF -->>{L_INLINE} {L_ADD_AFTER}</option>
+									<option value="inline-before-add"<!-- IF file_row.edit.action.TYPE == 'inline-before-add' --> selected="selected"<!-- ENDIF -->>{L_INLINE} {L_ADD_BEFORE}</option>
+									<option value="inline-replace-with"<!-- IF file_row.edit.action.TYPE == 'inline-replace-with' --> selected="selected"<!-- ENDIF -->>{L_INLINE} {L_REPLACE_WITH}</option>
+									<option value="inline-operation"<!-- IF file_row.edit.action.TYPE == 'inline-operation' --> selected="selected"<!-- ENDIF -->>{L_INLINE} {L_OPERATION}</option>
+									<option value="inline-remove"<!-- IF file_row.edit.action.TYPE == 'inline-remove' --> selected="selected"<!-- ENDIF -->>{L_INLINE} {L_REMOVE}</option>
+								</select>
+
+								<div id="{file_row.edit.action.DT_ID}_options" style="margin-top: 5px;">
+									<img class="action-image" src="{T_IMAGESET_PATH}/modx_plus_up.png" alt="{L_ADD_FIELD_ABOVE}" onclick="modx_add_field('modx[{file_row.FILE_ID}][{file_row.edit.EDIT_ID}]', '{file_row.edit.action.DL_ID}', 'dl', 'above')" title="{L_ADD_FIELD_ABOVE_EXPLAIN}" />
+									<img id="{file_row.edit.action.DT_ID}_plus" class="action-image" src="{T_IMAGESET_PATH}/modx_plus_down.png" alt="{L_ADD_FIELD_BELOW}" onclick="modx_add_field('modx[{file_row.FILE_ID}][{file_row.edit.EDIT_ID}]', '{file_row.edit.action.DL_ID}', 'dl', 'below')" title="{L_ADD_FIELD_BELOW_EXPLAIN}" />
+									{file_row.edit.action.MODX_IMG}
+								</div>
+							</dt>
+							<dd id="{file_row.edit.action.DD_ID}">
+									{file_row.edit.action.MODX_INPUT}
+									<!-- IF file_row.edit.action.S_TEXTAREA -->
+									<div class="right-tools" id="{file_row.edit.action.DD_ID}_toolbox">
+										<img class="action-image" src="{T_IMAGESET_PATH}/modx_delete.png" alt="{L_DELETE}" onclick="$('#{file_row.edit.action.DL_ID}').remove()" />
+										<img id="{file_row.edit.action.DD_ID}-plus" class="action-image" src="{T_IMAGESET_PATH}/modx_plus.png" alt="{L_ADD_FOUR}" onclick="document.forms['modxform'].{file_row.edit.action.DD_ID}_data.rows+=4" title="{L_ADD_FOUR_EXPLAIN}" />
+										<img id="{file_row.edit.action.DD_ID}-minus" class="action-image" src="{T_IMAGESET_PATH}/modx_del.png" alt="{L_REMOVE_FOUR}" onclick="if(document.forms['modxform'].{file_row.edit.action.DD_ID}_data.rows>7){document.forms['modxform'].{file_row.edit.action.DD_ID}_data.rows-=4}else{document.forms['modxform'].{file_row.edit.action.DD_ID}_data.rows-=(document.forms['modxform'].{file_row.edit.action.DD_ID}_data.rows-4)};" title="{L_REMOVE_FOUR_EXPLAIN}" />
+									</div>
+									<!-- ELSE --><img id="{file_row.edit.action.DD_ID}_delete_tool" class="action-image" src="{T_IMAGESET_PATH}/modx_delete.png" alt="{L_DELETE}" onclick="$('#{file_row.edit.action.DL_ID}').remove()" />
+									<!-- ENDIF -->
+									{file_row.edit.action.MODX_SELECT}
+							</dd>
+						</dl>
+						<!-- END action -->
+					</fieldset>
+					<br />
+					<!-- END edit -->
+				</fieldset>
+				<!-- END file_row -->
+			</div>
+			<input class="button2 adjusted-size" type="button" value="{L_FILE_ADD}" onclick="act_file();" />
+			<img class="sign" src="{T_IMAGESET_PATH}/modx_info.png" alt="{L_INFO_ICON}" title="{L_FILE_ADD_EDITS_EXPLAIN}" />
+
+		<!-- end the damage -->
+		<span class="corners-bottom"><span></span></span></div>
+	</div>
+
+	<div class="panel bg2">
+		<div class="inner"><span class="corners-top"><span></span></span>
+		<!-- begin PHP-installer -->
+			<h3>{L_PHP_INSTALL_FILE}</h3>
+			<fieldset class="fields2">
+			<dl>
+				<dt>
+					<label for="php-installer">{L_PHP_INSTALL_FILE_NOTE}</label>
+					<img class="sign" src="{T_IMAGESET_PATH}/modx_info.png" alt="{L_INFO_ICON}" title="{L_PHP_INSTALL_FILE_EXPLAIN}" />
+				</dt>
+				<dd><input class="inputbox" id="php-installer" type="text" name="php-installer" size="70" maxlength="255" value="{PHP_INSTALLER}" /></dd>
+			</dl>
+		</fieldset>
+		<!-- end PHP-installer -->
+		<span class="corners-bottom"><span></span></span></div>
+	</div>
+
+	<div class="panel bg2">
+		<div class="inner"><span class="corners-top"><span></span></span>
+		<!-- begin DIY -->
+			<h3>{L_DIY_INSTRUCTIONS}</h3>
+			<fieldset class="fields2">
+			<!-- Do It Yourseld -->
+			<dl id="diy-field">
+				<dt>
+					<img class="action-image" src="{T_IMAGESET_PATH}/modx_plus.png" alt="{L_DIY_ADD}" onclick="add_diy();" title="{L_DIY_ADD_EXPLAIN}" />
+					<img class="sign" src="{T_IMAGESET_PATH}/modx_info.png" alt="{L_INFO_ICON}" title="{L_DIY_EXPLAIN}" />
+				</dt>
+				<!-- BEGIN diy_row -->
+				<dd id="{diy_row.FIELD_ID}">
+					<!-- IF not diy_row.S_FIRST_ROW --><br /><!-- ENDIF -->
+					<textarea class="inputbox right-tools" name="diy[{diy_row.FIELD_ID}][diy]" id="diy_{diy_row.FIELD_ID}_diy" rows="{diy_row.ROWS}">{diy_row.DIY}</textarea>
+					<div class="right-tools">
+						<img class="action-image" src="{T_IMAGESET_PATH}/modx_delete.png" alt="{L_DELETE}" onclick="$('#{diy_row.FIELD_ID}').remove()" />
+						<img id="{diy_row.FIELD_ID}-plus" class="action-image" src="{T_IMAGESET_PATH}/modx_plus.png" alt="{L_ADD_FOUR}" onclick="document.forms['modxform'].diy_{diy_row.FIELD_ID}_diy.rows+=4" title="{LADD_FOUR_EXPLAIN_}" />
+						<img id="{diy_row.FIELD_ID}-minus" class="action-image" src="{T_IMAGESET_PATH}/modx_del.png" alt="{L_REMOVE_FOUR}" onclick="if(document.forms['modxform'].diy_{diy_row.FIELD_ID}_diy.rows>7){document.forms['modxform'].diy_{diy_row.FIELD_ID}_diy.rows-=4}else{document.forms['modxform'].diy_{diy_row.FIELD_ID}_diy.rows-=(document.forms['modxform'].diy_{diy_row.FIELD_ID}_diy.rows-4)};" title="{L_REMOVE_FOUR_EXPLAIN}" />
+					</div>
+					<br style="clear:both" /><select name="diy[{diy_row.FIELD_ID}][lang]">{diy_row.LANG}</select>
+				</dd>
+				<!-- BEGINELSE -->
+				<dd id="diy_0">
+					<textarea class="inputbox right-tools" name="diy[desc_pre][diy]" id="diy_01" cols="20" rows="5"></textarea>
+					<div class="right-tools">
+						<img class="action-image" src="{T_IMAGESET_PATH}/modx_delete.png" alt="{L_DELETE}" onclick="$('#diy_0').remove()" />
+						<img id="diy0-plus" class="action-image" src="{T_IMAGESET_PATH}/modx_plus.png" alt="{L_ADD_FOUR}" onclick="document.forms['modxform'].diy_01.rows+=4" title="{ADD_FOUR_EXPLAIN}" />
+						<img id="diy0-minus" class="action-image" src="{T_IMAGESET_PATH}/modx_del.png" alt="{L_REMOVE_FOUR}" onclick="if(document.forms['modxform'].diy_01.rows>7){document.forms['modxform'].diy_01.rows-=4}else{document.forms['modxform'].diy_01.rows-=(document.forms['modxform'].diy_01.rows-4)};" title="{L_REMOVE_FOUR_EXPLAIN}" />
+					</div>
+					<br style="clear:both" /><select name="diy[desc_pre][lang]">{LANG_SELECT}</select>
+				</dd>
+				<!-- END diy_row -->
+			</dl>
+		</fieldset>
+		<!-- end DIY -->
+		<span class="corners-bottom"><span></span></span></div>
+	</div>
+
+	<div id="page-footer">
+		<fieldset class="submit-buttons">
+
+			<!-- BEGIN meta_row -->
+				<input type="hidden" name="meta[{meta_row.FIELD_ID}][name]" value="{meta_row.NAME}" />
+				<input type="hidden" name="meta[{meta_row.FIELD_ID}][content]" value="{meta_row.CONTENT}" />
+			<!-- END meta_row -->
+
+			<input class="button1" type="submit" name="preview" value="{L_VIEW}" onclick="this.form.target='_blank';" />&nbsp;
+			<input class="button1" type="submit" name="dload" value="{L_DOWNLOAD}" onclick="this.form.target='_self';" />
+		</fieldset>
+	</form>
+
+	<span class="fcorners-bottom"><span></span></span>
+	</div>
+
+<!-- INCLUDE overall_footer.html -->

@@ -1,0 +1,103 @@
+/* proSilver MODX Creator
+---------------------------------------- */
+#error-div {
+	background-color: red;
+}
+
+#warning-div {
+	background-color: yellow;
+}
+
+.rtl .icon-creator {
+	background-position: 100% 50%;
+	padding: 1px 17px 0 0;
+}
+
+.icon-creator {
+	background-position: 0 50%;
+	background-repeat: no-repeat;
+	background-image: none;
+	padding: 1px 0 0 17px;
+}
+
+.icon-creator					{ background-image: url("{T_THEME_PATH}/images/icon_creator.gif"); }
+
+.error-dl {
+	background-color: red;
+}
+
+img.sign, img.action-image {
+	vertical-align: middle !important;
+	margin-right: 3px;
+	height:14px;
+	width:14px;
+}
+
+img.action-image {
+	cursor: pointer;
+}
+
+div.right-tools {
+	float: left;
+	width: 14px;
+	clear: right;
+}
+
+div.right-tools img {
+	margin-bottom: 2px;
+}
+
+textarea.right-tools {
+	float: left;
+	margin-bottom: 3px;
+}
+
+fieldset.modx-level1 {
+	background-color: #FFFFFF;
+	padding: 10px;
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+
+fieldset.modx-level2 {
+	padding: 5px;
+	background-color: #F5F8FB;
+	border: 1px solid #E5E8EC;
+	margin-top: 5px;
+	margin-bottom: 10px;
+	font-size: 1em !important;
+}
+
+.modx-edit {
+	border-top: 1px dashed #CCC;
+}
+
+fieldset.modx-level2 dd span {
+	margin-left: 3em;
+}
+
+fieldset.modx-level2 dt span {
+	white-space: nowrap;
+	margin-left: 3px;
+}
+
+.modx-level2 dd span {
+	margin-left: 3em;
+}
+
+fieldset.modx-level2 textarea.right-tools {
+	margin-left: 3em;
+}
+
+.modx-edit {
+	border-top: 1px dashed #CCC;
+}
+
+.modx-level2 dd img {
+	vertical-align: top !important;
+}
+
+.modx-level2 dt {
+	white-space: nowrap;
+	margin-left: 3px;
+}
