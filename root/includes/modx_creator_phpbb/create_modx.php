@@ -24,7 +24,7 @@ $xml->setIndentString("\t");
 // The header
 $xml->startDocument('1.0', 'UTF-8', 'yes');
 
-$xml->writePi('xml-stylesheet', 'type="text/xsl" href="modx.prosilver.en.xsl"');
+$xml->writePi('xml-stylesheet', 'type="text/xsl" href="' . ((!empty($preview)) ? $phpbb_root_path . 'modx_files/' : '') . 'modx.prosilver.en.xsl"');
 
 $xml->writeComment('NOTICE: Please open this file in your web browser. If presented with a security warning, you may safely tell it to allow the blocked content.');
 $xml->writeComment('For security purposes, please check: http://www.phpbb.com/mods/ for the latest version of this MOD.\nAlthough MODs are checked before being allowed in the MODs Database there is no guarantee that there are no security problems within the MOD.\nNo support will be given for MODs not found within the MODs Database which can be found at http://www.phpbb.com/mods/');

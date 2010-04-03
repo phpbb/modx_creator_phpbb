@@ -9,14 +9,14 @@
 		<div class="inner">
 			<!-- IF S_ERRORS --><div id="error-div">{L_WHERE_ERRORS}</div><!-- ENDIF -->
 			<!-- IF S_WARNINGS --><div id="warning-div">{L_WHERE_WARNINGS}</div><!-- ENDIF -->
-			
+
 			<fieldset class="modx fields2">
 				<label for="upload-file">{L_CAN_IMPORT}</label><br />
 				<input type="hidden" name="MAX_FILE_SIZE" value="307200" />
 				<input class="btnfile" type="file" name="upload-file" id="upload-file" accept="text/xml,text/plain" size="60" />
 				<input class="btnmain" type="submit" name="submit-file" value="{L_SUBMIT}" onclick="this.form.target='_self';" />
 				<hr />
-				{L_MODX_FILES}: <a href="modx_file.php?file=modx.prosilver.en.xsl">{L_DOWNLOAD_MODX}</a> &bull; <a href="modx_file.php?file=license.txt">{L_DOWNLOAD_LICENSE}</a>
+				{L_MODX_FILES}: <a href="{U_MODX_FILE}?file=modx.prosilver.en.xsl">{L_DOWNLOAD_MODX}</a> &bull; <a href="{U_MODX_FILE}?file=license.txt">{L_DOWNLOAD_LICENSE}</a>
 			</fieldset>
 		</div>
 	</div>

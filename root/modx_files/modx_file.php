@@ -8,6 +8,8 @@
 *
 */
 
+$phpbb_root_path = (defined('PHPBB_ROOT_PATH')) ? PHPBB_ROOT_PATH : './';
+
 $filename = (isset($_GET['file'])) ? $_GET['file'] : '';
 
 if($filename == 'modx.prosilver.en.xsl' ||  $filename == 'license.txt')
@@ -17,7 +19,7 @@ if($filename == 'modx.prosilver.en.xsl' ||  $filename == 'license.txt')
 		exit;
 	}
 
-	$file = ($filename == 'modx.prosilver.en.xsl') ? './modx.prosilver.en.xsl' : './license.txt';
+	$file = $phpbb_root_path . (($filename == 'modx.prosilver.en.xsl') ? './modx.prosilver.en.xsl' : './license.txt');
 	if(!file_exists($file))
 	{
 		exit;

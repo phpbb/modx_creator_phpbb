@@ -499,6 +499,8 @@ $template->assign_vars(array(
 	'S_WARNINGS' => (($dload || $preview) && !empty($warning)) ? true : false,
 
 	'TARGET_VERSION' => (isset($target)) ? $target : '',
+
+	'U_MODX_FILE' => $phpbb_root_path . 'modx_files/modx_file.' . $phpEx, // No append_sid here.
 ));
 page_header($user->lang['MODX_CREATOR'], false);
 
