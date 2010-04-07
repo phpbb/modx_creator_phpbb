@@ -17,6 +17,34 @@ if(!defined('IN_PHPBB'))
 }
 
 /**
+ * Obtains the latest version information
+ *
+ * Modified from acp_main.php
+ *
+ * @return string Version info.
+ */
+function get_phpbb_latest()
+{
+	global $cache, $config;
+
+	$latest_version_info = false;
+	if (($latest_version_info = obtain_latest_version_info(request_var('versioncheck_force', false))) === false)
+	{
+		// We did not get any version info. Default to the forum version.
+		$latest_version = $config['version'];
+	}
+	else
+	{
+		$latest_version_info = explode("\n", $latest_version_info);
+
+		$latest_version = trim($latest_version_info[0]);
+	}
+
+	return $latest_version;
+}
+
+
+/**
 * write_element()
 *
 * Writes a XML element with attributes

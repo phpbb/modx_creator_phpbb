@@ -11,6 +11,7 @@ define('IN_PHPBB', true);
 $phpbb_root_path = (defined('PHPBB_ROOT_PATH')) ? PHPBB_ROOT_PATH : './';
 $phpEx = substr(strrchr(__FILE__, '.'), 1);
 include($phpbb_root_path . 'common.' . $phpEx);
+include($phpbb_root_path . 'includes/functions_admin.' . $phpEx);
 include($phpbb_root_path . 'includes/modx_creator_phpbb/modx_constants.' . $phpEx);
 include($phpbb_root_path . 'includes/modx_creator_phpbb/modx_functions.' . $phpEx);
 include($phpbb_root_path . 'includes/modx_creator_phpbb/parser_outdata.' . $phpEx);
@@ -20,12 +21,16 @@ $user->session_begin();
 $auth->acl($user->data);
 $user->setup('mods/modx_creator');
 
-// The get the post vars
+// Get the post vars
 $preview = (isset($_POST['preview'])) ? true : false;
 $dload = (isset($_POST['dload'])) ? true : false;
 $submit_file = (isset($_POST['submit-file']) && $_FILES['upload-file']['size']) ? true : false;
 
 $submit = ($preview || $dload) ? true : false;
+
+// phpBB latest.
+$phpbb_latest = get_phpbb_latest();
+define('PHPBB_LATEST', $phpbb_latest);
 
 // Determine board url - we'll need it later
 $board_url = generate_board_url() . '/';
