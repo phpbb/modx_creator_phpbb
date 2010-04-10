@@ -5,8 +5,6 @@
 <mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.phpbb.com/mods/xml/modx-1.2.5.xsd">
 	<header>
 		<meta name="generator" content="MODX file generated with PP MODX Creator 1.0.0 by tumba25 (offline version)"/>
-		<meta name="generator" content="MODX file generated with PP MODX Creator by tumba25 (offline version)"/>
-		<meta name="generator" content="MODX file generated with PP MODX Creator by tumba25 (online version)"/>
 		<license><![CDATA[http://opensource.org/licenses/gpl-license.php GNU General Public License v2]]></license>
 		<title lang="en"><![CDATA[MODX Creator for phpBB]]></title>
 		<description lang="en"><![CDATA[MODX install file creator for phpBB forums]]></description>
