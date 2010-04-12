@@ -279,7 +279,7 @@ function add_author()
 
 	var element = '<fieldset class="modx-level1 fields2" id="' + field_id + '">';
 		element += '<dl>';
-			element += '<dt class="author-rows"><label for="author-' + field_id + '-username">' + lang['USERNAME'] + ':*</label>';
+			element += '<dt class="author-rows"><label for="author-' + field_id + '-username">' + lang['USERNAME'] + ':*</label></dt>';
 			element += '<dd class="author-rows">';
 				element += '<input class="inputbox autowidth" type="text" name="author[' + field_id + '][username]" id="author-' + field_id + '-username" size="40" maxlength="255" value="" />';
 				element += '<img class="action-image" src="' + image_path + 'modx_delete.png" alt="' + lang['DELETE'] + '" onclick="$(\'#' + field_id + '\').remove()" />';
