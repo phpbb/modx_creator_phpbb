@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="modx.prosilver.en.xsl"?>
+<!--NOTICE: Please open this file in your web browser. If presented with a security warning, you may safely tell it to allow the blocked content.-->
+<!--For security purposes, please check: http://www.phpbb.com/mods/ for the latest version of this MOD.\nAlthough MODs are checked before being allowed in the MODs Database there is no guarantee that there are no security problems within the MOD.\nNo support will be given for MODs not found within the MODs Database which can be found at http://www.phpbb.com/mods/-->
+<mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.phpbb.com/mods/xml/modx-1.2.5.xsd">
+	<header>
+		<meta name="generator" content="MODX file generated with PP MODX Creator 1.0.0 by tumba25 (offline version)"/>
+		<license><![CDATA[http://opensource.org/licenses/gpl-license.php GNU General Public License v2]]></license>
+		<title lang="en"><![CDATA[MODX Creator phpBB]]></title>
+		<description lang="en"><![CDATA[MODX install file creator for phpBB forums.]]></description>
+		<author-group>
+			<author>
+				<realname><![CDATA[Jari Kanerva]]></realname>
+				<username><![CDATA[tumba25]]></username>
+				<homepage><![CDATA[http://skripter.se]]></homepage>
+			</author>
+		</author-group>
+		<mod-version>1.0.1</mod-version>
+		<installation>
+			<level>easy</level>
+			<time>300</time>
+			<target-version>3.0.7-PL1</target-version>
+		</installation>
+		<history>
+			<entry>
+				<date>2010-04-12</date>
+				<rev-version>1.0.1</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[Some files was missing from the release package.]]></change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2010-04-10</date>
+				<rev-version>1.0.0</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[Initial release]]></change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2010-04-04</date>
+				<rev-version>1.0.0-RC1</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[First RC.]]></change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2010-03-22</date>
+				<rev-version>0.1.0</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[Initial beta]]></change>
+				</changelog>
+			</entry>
+		</history>
+		<link-group>
+			<link type="template" href="subsilver2.xml" lang="en">Subsilver2 instructions</link>
+		</link-group>
+	</header>
+	<action-group>
+		<copy>
+			<file from="root/*.*" to="*.*"/>
+		</copy>
+		<open src="includes/functions.php">
+			<edit>
+				<find><![CDATA[		'U_MODCP'				=> append_sid("{$phpbb_root_path}mcp.$phpEx", false, true, $user->session_id),]]></find>
+				<action type="after-add"><![CDATA[		'U_MODX_CREATOR'	=> append_sid("{$phpbb_root_path}modx_creator.$phpEx"),]]></action>
+			</edit>
+		</open>
+		<open src="language/en/common.php">
+			<edit>
+				<find><![CDATA[	'MODERATORS'			=> 'Moderators',]]></find>
+				<action type="after-add"><![CDATA[	'MODX_CREATOR' => 'MODX Creator',]]></action>
+			</edit>
+		</open>
+		<open src="styles/prosilver/template/overall_header.html">
+			<edit>
+				<find><![CDATA[<!-- IF S_CONTENT_DIRECTION eq 'rtl' -->
+	<link href="{T_THEME_PATH}/bidi.css" rel="stylesheet" type="text/css" media="screen, projection" />
+<!-- ENDIF -->]]></find>
+				<action type="after-add"><![CDATA[<!-- IF S_IN_MODX_CREATOR -->
+	<!-- INCLUDE modx_creator_lang.html -->
+	<script type="text/javascript" src="{ROOT_PATH}js/jquery-1.4.2.min.js"></script>
+	<script type="text/javascript" src="{ROOT_PATH}js/modx_functions.js"></script>
+<!-- ENDIF -->]]></action>
+			</edit>
+			<edit>
+				<find><![CDATA[<ul class="linklist rightside">]]></find>
+				<action type="after-add"><![CDATA[				<li class="icon-creator"><a href="{U_MODX_CREATOR}" title="{L_MODX_CREATOR}">{L_MODX_CREATOR}</a></li>]]></action>
+			</edit>
+		</open>
+		<open src="styles/prosilver/theme/stylesheet.css">
+			<edit>
+				<find><![CDATA[@import url("colours.css");]]></find>
+				<action type="after-add"><![CDATA[@import url("modx_creator.css");]]></action>
+			</edit>
+		</open>
+		<diy-instructions lang="en"><![CDATA[Purge your forum cache.
+Refresh your templates, imagesets and themes in ACP > Styles]]></diy-instructions>
+	</action-group>
+</mod>
