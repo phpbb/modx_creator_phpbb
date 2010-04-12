@@ -15,7 +15,7 @@
 				<homepage><![CDATA[http://skripter.se]]></homepage>
 			</author>
 		</author-group>
-		<mod-version>1.0.0</mod-version>
+		<mod-version>1.0.1</mod-version>
 		<installation>
 			<level>easy</level>
 			<time>300</time>
@@ -23,10 +23,17 @@
 		</installation>
 		<history>
 			<entry>
-				<date>2010-03-22</date>
-				<rev-version>0.1.0</rev-version>
+				<date>2010-04-12</date>
+				<rev-version>1.0.1</rev-version>
 				<changelog lang="en">
-					<change><![CDATA[Initial beta]]></change>
+					<change><![CDATA[Some files was missing from the release package.]]></change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2010-04-10</date>
+				<rev-version>1.0.0</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[Initial release]]></change>
 				</changelog>
 			</entry>
 			<entry>
@@ -37,10 +44,10 @@
 				</changelog>
 			</entry>
 			<entry>
-				<date>2010-04-10</date>
-				<rev-version>1.0.0</rev-version>
+				<date>2010-03-22</date>
+				<rev-version>0.1.0</rev-version>
 				<changelog lang="en">
-					<change><![CDATA[Initial release]]></change>
+					<change><![CDATA[Initial beta]]></change>
 				</changelog>
 			</entry>
 		</history>
