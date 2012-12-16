@@ -16,7 +16,8 @@ if(!defined('IN_PHPBB'))
 	exit;
 }
 
-define('MODX_LATEST', 'modx-1.2.5.xsd');
+define('MODX_LATEST', 'modx-1.2.6.xsd');
+define('CREATOR_VERSION', '1.2.6');
 
 define('MOD', 1);
 define('MODX', 2);
@@ -35,7 +36,8 @@ define('OUTLINE', 5);
 
 // We request that you keep the meta tag intact.
 // Removing it might affected future developmet of this tool.
-define('META', 'MODX file generated with PP MODX Creator 1.0.1 by tumba25 (phpBB version)');
+// Without this tag we don't know if this tool is actually used and how many uses it.
+define('META', 'MODX file generated with PP MODX Creator '. CREATOR_VERSION . ' by tumba25 (phpBB version)');
 
 $target_lang = array(
 	'ab' => 'Abkhazian',

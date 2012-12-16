@@ -56,6 +56,9 @@ class post_parser extends parser_outdata
 		$this->license = (isset($post_data['license'])) ? stripslashes(trim($post_data['license'])) : '';
 		$this->php_installer = (isset($post_data['php-installer'])) ? stripslashes(trim($post_data['php-installer'])) : '';
 
+		$this->github = trim(request_var('github', ''));
+		$this->github = (strpos($this->github, 'https://github.com/') === 0) ? $this->github : '';
+
 		// Arrays
 		$this->title = (isset($post_data['title'])) ? $this->modx_stripslashes($post_data['title']) : array();
 		$this->title = $this->int_keys($this->title);

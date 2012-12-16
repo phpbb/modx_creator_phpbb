@@ -45,7 +45,7 @@ if ($submit_file && !$submit)
 	if ($_FILES['upload-file']['size'] > 0)
 	{
 		// Lets start with the extension...
-		$extension = strtolower(array_pop(explode('.', $_FILES['upload-file']['name'])));
+		$extension = substr(strrchr($_FILES['upload-file']['name'], '.'), 1);
 		$str = file_get_contents($_FILES['upload-file']['tmp_name'], 0, NULL, 0, 200);
 
 		// We'll need to know what kind of file it is
@@ -99,6 +99,8 @@ $target = $parser->get_modx_target_version();
 
 $php_installer = $parser->get_modx_php_installer();
 
+$u_github = $parser->get_modx_github();
+
 // Check the vars that are not cheched later.
 if ($submit)
 {
@@ -132,6 +134,11 @@ if ($submit)
 	if ($install_time == 0)
 	{
 		$error['install_time'] = 'install_time';
+	}
+
+	if (strpos($u_github, 'https://github.com/') !== 0)
+	{
+		$error['github'] = true;
 	}
 }
 
@@ -475,37 +482,40 @@ if (($dload || $preview) && empty($error))
 }
 
 $template->assign_vars(array(
-	'INSTALL_LEVEL' => (isset($install_level)) ? $install_level : '',
-	'INSTALL_TIME' => (isset($install_time)) ? $install_time : '',
+	'GITHUB'	=> $u_github,
 
-	'LANG_SELECT' => lang_select(),
-	'LICENSE' => (!empty($license)) ? $license : 'http://opensource.org/licenses/gpl-license.php GNU General Public License v2',
+	'INSTALL_LEVEL'	=> (isset($install_level)) ? $install_level : '',
+	'INSTALL_TIME'	=> (isset($install_time)) ? $install_time : '',
 
-	'MOD_VERSION' => (isset($version)) ? $version : '',
+	'LANG_SELECT'	=> lang_select(),
+	'LICENSE'		=> (!empty($license)) ? $license : 'http://opensource.org/licenses/gpl-license.php GNU General Public License v2',
 
-	'PHP_INSTALLER' => (!empty($php_installer)) ? $php_installer : '',
-	'PHPBB_LATEST' => PHPBB_LATEST,
+	'MOD_VERSION'	=> (isset($version)) ? $version : '',
 
-	'S_ERROR_TITLE' => (isset($error['title'])) ? true : false,
-	'S_ERROR_DESC' => (isset($error['desc'])) ? true : false,
-	'S_ERROR_VERSION' => (isset($error['version'])) ? true : false,
-	'S_ERROR_TARGET' => (isset($error['target'])) ? true : false,
-	'S_ERROR_INSTALL_LEVEL' => (isset($error['install_level'])) ? true : false,
-	'S_ERROR_INSTALL_TIME' => (isset($error['install_time'])) ? true : false,
-	'S_ERROR_AUTHOR' => (isset($error['author'])) ? true : false,
-	'S_ERRORS' => (($dload || $preview) && !empty($error)) ? true : false,
+	'PHP_INSTALLER'	=> (!empty($php_installer)) ? $php_installer : '',
+	'PHPBB_LATEST'	=> PHPBB_LATEST,
 
-	'S_IS_COPY' => $s_is_copy,
-	'S_IS_DELETE' => $s_is_delete,
-	'S_IN_MODX_CREATOR' => true,
-	'S_SUBMIT' => ($submit) ? true : false,
+	'S_ERROR_TITLE'		=> (isset($error['title'])) ? true : false,
+	'S_ERROR_DESC'		=> (isset($error['desc'])) ? true : false,
+	'S_ERROR_VERSION'	=> (isset($error['version'])) ? true : false,
+	'S_ERROR_TARGET'	=> (isset($error['target'])) ? true : false,
+	'S_ERROR_INSTALL_LEVEL'	=> (isset($error['install_level'])) ? true : false,
+	'S_ERROR_INSTALL_TIME'	=> (isset($error['install_time'])) ? true : false,
+	'S_ERROR_AUTHOR'	=> (isset($error['author'])) ? true : false,
+	'S_ERROR_GITHUB'	=> (isset($error['github'])) ? true : false,
+	'S_ERRORS'			=> (($dload || $preview) && !empty($error)) ? true : false,
 
-	'S_WARNING_TARGET' => (isset($warning['target'])) ? true : false,
-	'S_WARNINGS' => (($dload || $preview) && !empty($warning)) ? true : false,
+	'S_IS_COPY'			=> $s_is_copy,
+	'S_IS_DELETE'		=> $s_is_delete,
+	'S_IN_MODX_CREATOR'	=> true,
+	'S_SUBMIT'			=> ($submit) ? true : false,
 
-	'TARGET_VERSION' => (isset($target)) ? $target : '',
+	'S_WARNING_TARGET'	=> (isset($warning['target'])) ? true : false,
+	'S_WARNINGS'		=> (($dload || $preview) && !empty($warning)) ? true : false,
 
-	'U_MODX_FILE' => $phpbb_root_path . 'modx_files/modx_file.' . $phpEx, // No append_sid here.
+	'TARGET_VERSION'	=> (isset($target)) ? $target : '',
+
+	'U_MODX_FILE'	=> $phpbb_root_path . 'modx_files/modx_file.' . $phpEx, // No append_sid here.
 ));
 page_header($user->lang['MODX_CREATOR'], false);
 

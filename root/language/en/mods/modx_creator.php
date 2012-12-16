@@ -96,6 +96,9 @@ $lang = array_merge($lang, array(
 	'FIND_EXPLAIN' => 'Find tags in the MODX file should be in the order that the find targets appear in the file. In other words, a processor of the MODX file should never need to go backwards in the file to locate all of the finds. When there are multiple finds within a single edit tag, the processor should handle all finds before any actions.',
 	'FROM' => 'From',
 
+	'GITHUB_LINK'			=> 'github link',
+	'GITHUB_LINK_EXPLAIN'	=> 'This needs to be a fully qualified URL to the MOD repo at github.',
+
 	'HISTORY' => 'History',
 	'HISTORY_ADD' => 'Add history',
 	'HISTORY_EXPLAIN' => 'You can have as many change log fields as you want or none. If you choose to have a changelog, all fields are required. You must have at least one change per change log entry. The versions will be ordered from oldest to newest or newest to oldest depending on if the checkbox below is selected or not.',
