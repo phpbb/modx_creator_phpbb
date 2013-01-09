@@ -20,7 +20,7 @@
 	padding: 1px 0 0 17px;
 }
 
-.icon-creator					{ background-image: url("{T_THEME_PATH}/images/icon_creator.gif"); }
+.icon-creator { background-image: url("{T_THEME_PATH}/images/icon_creator.gif"); }
 
 .error-dl {
 	background-color: red;
