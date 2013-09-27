@@ -96,8 +96,8 @@ $lang = array_merge($lang, array(
 	'FIND_EXPLAIN' => 'Find tags in the MODX file should be in the order that the find targets appear in the file. In other words, a processor of the MODX file should never need to go backwards in the file to locate all of the finds. When there are multiple finds within a single edit tag, the processor should handle all finds before any actions.',
 	'FROM' => 'From',
 
-	'GITHUB_LINK'			=> 'github link',
-	'GITHUB_LINK_EXPLAIN'	=> 'This needs to be a fully qualified URL to the MOD repo at github.',
+	'GITHUB_LINK'			=> 'GitHub link',
+	'GITHUB_LINK_EXPLAIN'	=> 'This needs to be a fully qualified URL to the MOD repo at GitHub.',
 
 	'HISTORY' => 'History',
 	'HISTORY_ADD' => 'Add history',
