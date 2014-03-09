@@ -77,9 +77,9 @@ $lang = array_merge($lang, array(
 	'EDIT' => 'Edit',
 	'EDIT_ADD_ABOVE' => 'Add edit above',
 	'EDIT_ADD_BELOW' => 'Add edit below',
-	'EDIT_EXPLAIN' => 'Every discreet change to a file must be wrapped in its own edit tag, regardless of the number of children it contains. All finds within an edit tag should be processed before any action tag.',
-	'EDIT_FIND_EXPLAIN' => 'Each FIND typically requires to start a new EDIT',
-	'EDIT_NOTE' => 'NOTE: Each discreet change to a file must be wrapped in it’s own edit tag.',
+	'EDIT_EXPLAIN' => 'Each discrete change to a file must be wrapped in its own edit tag, regardless of the number of children it contains. All finds within an edit tag should be processed before any action tag.',
+	'EDIT_FIND_EXPLAIN' => 'Each FIND typically requires starting a new EDIT',
+	'EDIT_NOTE' => 'NOTE: Each discrete change to a file must be wrapped in its own edit tag.',
 	'E_MAIL' => 'E-mail',
 
 	'FILE_ADD' => 'Add file',
